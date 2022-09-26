@@ -1,13 +1,15 @@
 <?php
 
-function theme_support () {
+function theme_support (): void
+{
 	add_theme_support('title-tag');
 }
 
-function theme_register_assets()
+function theme_register_assets(): void
 {
-	wp_register_style('style', get_stylesheet_uri(), []);
-	wp_enqueue_style('style');
+	wp_register_style('style', get_template_directory_uri() . '/assets/css/style.css', []);
+    wp_enqueue_style('Cormorant_Garamond_font','https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap' );
+    wp_enqueue_style('style');
 }
 
 function theme_title_separator (): string {

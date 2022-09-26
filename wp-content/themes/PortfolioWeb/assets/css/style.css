@@ -1,0 +1,30 @@
+/*Reset css */
+
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+html, body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+/* font */
+
+@font-face {
+    font-family: "perpetua titling mt";
+    src: url("/PERTILI.woff2") format("woff2");
+}
+
+
+body {
+    background: #151515;
+    color: white;
+}

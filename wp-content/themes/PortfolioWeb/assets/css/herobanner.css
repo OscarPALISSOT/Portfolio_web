@@ -1,4 +1,27 @@
 .herobanner{
-    background: #0c88b4;
-    margin: auto;
+    border: solid 2px white;
+    padding: 2em;
+    margin: 3em auto;
+    width: fit-content;
+}
+
+.herobanner h1{
+    width: fit-content;
+    font-size: 2.5em;
+}
+
+#name{
+    font-family: "Perpetua Titling MT", serif;
+    font-weight: 300;
+}
+
+#surname{
+    font-family: "Plain", sans-serif;
+    line-height: 0.9em;
+}
+
+#surname:hover{
+    color: transparent;
+    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-width: 1px;
 }

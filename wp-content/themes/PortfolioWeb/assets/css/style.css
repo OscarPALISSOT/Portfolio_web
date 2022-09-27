@@ -19,10 +19,11 @@ html, body{
 /* font */
 
 @font-face {
-    font-family: "perpetua titling mt";
-    src: url("/PERTILI.woff2") format("woff2");
+    font-family: "Plain";
+    src: url("Plain-Regular.woff2") format("woff2")
 }
 
+/* base css */
 
 body {
     background: #151515;

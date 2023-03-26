@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php wp_head() ?>
 </head>
-<header>
+<header style="border-bottom: 2px solid white">
     <a href="<?= home_url('/'); ?>" title="<?= __('Homepage', 'portfolio') ?>">
         <img src="<?= get_theme_mod('logo') ?>" alt="logo" style="height: 128px; width: auto">
     </a>

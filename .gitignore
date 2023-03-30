@@ -14,7 +14,9 @@
 # you can delete this whole section/until Configuration.
 /wp-admin/
 /wp-content/index.php
-/wp-content/plugins/
+/wp-content/plugins/advanced-custom-fields
+/wp-content/plugins/query-monitor
+/wp-content/plugins/regenerate-thumbnails
 /wp-content/languages
 /wp-content/plugins/index.php
 /wp-content/themes/index.php

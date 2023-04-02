@@ -1,1 +1,0 @@
-D:/Xampp/htdocs/Portfolio_web/wp-content/plugins/query-monitor/wp-content/db.php

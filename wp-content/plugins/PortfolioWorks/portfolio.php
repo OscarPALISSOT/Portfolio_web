@@ -36,6 +36,7 @@ add_action( 'init', function () {
 			'item_updated'             => __( 'Work updated.', 'portfolio' ),
 		],
 		'public'              => true,
+        'has_archive' => true,
 		'show_in_rest' => true,
 		'hierarchical'        => false,
 		'exclude_from_search' => false,

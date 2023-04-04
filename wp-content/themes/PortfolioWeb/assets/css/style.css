@@ -17,5 +17,15 @@ html, body{
 
 body {
     background: #151515;
-    color: white;
+    color: #fdfdfd;
+}
+
+main p{
+    transition: all ease-in-out .2s;
+    font-family: 'Inter', serif;
+    font-weight: 500;
+}
+
+main p:hover{
+    font-weight: 550;
 }

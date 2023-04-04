@@ -14,7 +14,6 @@ class Portfolio_Socials_Widget extends WP_Widget {
 		);
 		$this->fields = [
 			'title'   => __( 'Title', 'portfolio' ),
-			'credits' => __( 'Credits', 'portfolio' ),
 			'malt'    => 'Malt',
 			'github'  => 'Github',
 			'fiverr'  => 'Fiverr'

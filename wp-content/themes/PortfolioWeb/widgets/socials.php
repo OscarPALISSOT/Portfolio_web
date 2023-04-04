@@ -1,10 +1,4 @@
 <?php
-/**
- * @var array $instance
- */
-?>
-
-<?php
 
 $networks = [
 	'malt'   => 'Malt',
@@ -13,9 +7,6 @@ $networks = [
 ];
 
 ?>
-
-
-<div class="footer__credits"><?= esc_html( $instance['credits'] ) ?></div>
 
 <?php
 foreach ( $networks as $network => $label ) {

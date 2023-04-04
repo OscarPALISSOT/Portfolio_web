@@ -8,11 +8,11 @@
  * Author URI:    https://www.oscarpalissot.com
  */
 add_action( 'init', function () {
-	register_post_type( 'work', [
-		'label'               => __( 'Work', 'portfolio' ),
+	register_post_type( 'works', [
+		'label'               => __( 'Works', 'portfolio' ),
 		'menu_icon'           => 'dashicons-screenoptions',
 		'labels'              => [
-			'name'                     => __( 'Work', 'portfolio' ),
+			'name'                     => __( 'Works', 'portfolio' ),
 			'singular_name'            => __( 'Work', 'portfolio' ),
 			'edit_item'                => __( 'Edit Work', 'portfolio' ),
 			'new_item'                 => __( 'New Work', 'portfolio' ),
@@ -44,7 +44,7 @@ add_action( 'init', function () {
 		'supports'            => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
 	] );
 
-	register_taxonomy( 'work_tag', 'work', [
+	register_taxonomy( 'work_tag', 'works', [
 
 		'show_in_rest' => true,
 		'labels' => [

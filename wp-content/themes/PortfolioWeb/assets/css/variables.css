@@ -1,0 +1,5 @@
+:root {
+    --mainBackground: #151515;
+    --mainFont: #fdfdfd;
+    --mainFontFilter:invert(100%) sepia(3%) saturate(179%) hue-rotate(326deg) brightness(116%) contrast(98%);
+}

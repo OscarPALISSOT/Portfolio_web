@@ -1,7 +1,7 @@
 </main>
 </body>
-<footer style="border-top: 2px solid white">
-    <?php dynamic_sidebar('footer') ?>
+<footer>
 	<?php wp_footer() ?>
+    <?php dynamic_sidebar('footer') ?>
 </footer>
 </html>

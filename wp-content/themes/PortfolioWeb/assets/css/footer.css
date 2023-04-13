@@ -1,4 +1,6 @@
-footer{
+/* Footer */
+
+footer {
     border-top: var(--mainFont) 2px solid;
     margin: 2rem 0 4rem 0;
     display: flex;
@@ -9,39 +11,55 @@ footer > * {
     margin-top: 2em;
 }
 
-#wpadminbar{
-    margin-top: 0;
+footer .footerCol:not(:last-of-type) {
+    padding-bottom: 2rem;
+    border-bottom: var(--mainFont) 2px solid;
 }
 
-.footerTitle{
+
+.footerTitle {
     font-size: 2.5rem;
     font-weight: 400;
     margin-bottom: 1rem;
     cursor: default;
 }
 
-.footerCol li a{
-    color: var(--mainFont);
-    font-size: 1.5rem;
-}
+/* Social widget */
 
-.footerCol li{
-    margin-bottom: .3rem;
-}
-
-.socials__icons{
+.socials__icons {
     filter: var(--mainFontFilter);
     height: 3rem;
     margin: .5rem 0;
 }
 
-.social__links{
+.social__links {
     display: flex;
     width: min-content;
     flex-direction: column;
 }
 
-footer .footerCol:not(:last-of-type) {
-    padding-bottom: 2rem;
-    border-bottom: var(--mainFont) 2px solid;
+
+/* Sitemap */
+
+.footerCol li a {
+    display: block;
+    color: var(--mainFont);
+    font-size: 1.5rem;
+    transition: transform .5s ease-in-out;
+}
+
+.footerCol li {
+    margin-bottom: .5rem;
+    height: 1.5rem;
+    width: max-content;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.footerCol li:hover a{
+    transform: translateY(-2rem);
+}
+
+.afterLinks{
+    display: block;
 }

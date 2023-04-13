@@ -16,6 +16,18 @@ footer .footerCol:not(:last-of-type) {
     border-bottom: var(--mainFont) 2px solid;
 }
 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    footer {
+        margin-left: 25vw;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    footer .footerCol:not(:last-of-type) {
+        border-bottom: none;
+    }
+}
+
 
 .footerTitle {
     font-size: 2.5rem;
@@ -36,6 +48,13 @@ footer .footerCol:not(:last-of-type) {
     display: flex;
     width: min-content;
     flex-direction: column;
+}
+
+.social__link{
+    transition: all .1s ease-out;
+    display: block;
+    width: max-content;
+    z-index: 1;
 }
 
 

@@ -1,5 +1,7 @@
 window.onload = function (){
-    const links = document.getElementsByClassName('footerCol')[1].getElementsByTagName('ul')[0].getElementsByTagName('a');
+
+    // roll effect
+    let links = document.getElementsByClassName('footerCol')[1].getElementsByTagName('ul')[0].getElementsByTagName('a');
     for (let i=0; i<links.length; i++){
         let link = links[i];
         let text = link.innerHTML;
@@ -9,7 +11,12 @@ window.onload = function (){
         link.appendChild(after);
     }
 
+    // motion effect
     const socialLinks = document.getElementsByClassName('social__link');
+    const motionZone = {
+        x: 50,
+        y:30
+    }
     for (let i=0; i<socialLinks.length; i++){
         let link = socialLinks[i];
         let x = link.offsetLeft + link.offsetWidth/2;
@@ -17,11 +24,8 @@ window.onload = function (){
         link.addEventListener('mousemove', function (e){
             let xCor = e.clientX - x
             let yCor = e.screenY - y;
-            if (Math.abs(xCor) > 50 || Math.abs(yCor) > 50){
-                let moveX = - xCor + link.offsetWidth/2;
-                let moveY = - yCor - link.offsetHeight/2;
-                console.log(moveX, moveY);
-                link.style.transform = 'translate(' + moveX + 'px, ' + moveY + 'px)'
+            if (Math.abs(xCor) > motionZone.x || Math.abs(yCor) > motionZone.y){
+                link.style.transform = 'none'
             }else{
                 link.style.transform = 'translate(' + xCor + 'px, ' + yCor + 'px)';
             }

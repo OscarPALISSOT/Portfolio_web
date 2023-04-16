@@ -51,28 +51,40 @@ footer .footerCol:not(:last-of-type) {
 }
 
 .social__link{
-    transition: all .1s ease-out;
+    transition: all .3s ease-out;
     display: block;
     width: max-content;
-    z-index: 1;
 }
 
 
 /* Sitemap */
 
-.footerCol li a {
-    display: block;
-    color: var(--mainFont);
+.footerCol li a{
     font-size: 1.5rem;
+    display: block;
+}
+
+.footerCol li{
+    margin-bottom: .5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+/* Footer text */
+
+.textwidget p{
+    cursor: default;
+}
+
+/* roll effect */
+
+.footerCol li a{
     transition: transform .5s ease-in-out;
 }
 
-.footerCol li {
-    margin-bottom: .5rem;
-    height: 1.5rem;
+.footerCol li{
     width: max-content;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .footerCol li:hover a{

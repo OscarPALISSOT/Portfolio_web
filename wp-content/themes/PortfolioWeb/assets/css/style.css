@@ -31,7 +31,7 @@ li{
 }
 
 a{
-
+    color: var(--mainFont);
     text-decoration: none;
 }
 

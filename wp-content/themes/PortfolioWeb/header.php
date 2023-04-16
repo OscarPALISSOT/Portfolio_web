@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php wp_head() ?>
 </head>
-<header style="border-bottom: 2px solid white">
+<header>
     <a href="<?= home_url('/'); ?>" title="<?= __('Homepage', 'portfolio') ?>">
-        <img src="<?= get_theme_mod('logo') ?>" alt="logo" style="height: 128px; width: auto">
+        <img class="header__logo" src="<?= get_theme_mod('logo') ?>" alt="logo">
     </a>
     <?php wp_nav_menu([
 	    'theme_location' => 'header',

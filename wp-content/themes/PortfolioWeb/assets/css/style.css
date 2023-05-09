@@ -8,8 +8,10 @@
 }
 
 html, body{
-    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: smooth;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 
@@ -20,8 +22,8 @@ html, body{
 }
 
 body{
-    margin: 0 2rem 0 2rem;
-    background: var(--mainBackground);
+    padding: 0 2rem 0 2rem;
+    background: var(--mainBackgroundFade);
     color: var(--mainFont);
     font-family: 'Inter', serif;
 }

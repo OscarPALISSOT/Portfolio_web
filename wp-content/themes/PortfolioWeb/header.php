@@ -11,11 +11,17 @@
     <a href="<?= home_url('/'); ?>" title="<?= __('Homepage', 'portfolio') ?>">
         <img class="header__logo" src="<?= get_theme_mod('logo') ?>" alt="logo">
     </a>
+
+    <div class="hamburger__toggle">
+        <div class="hamburger__btn"></div>
+    </div>
+
     <?php wp_nav_menu([
 	    'theme_location' => 'header',
         'container' => false,
         'menu_class' => 'nav_menu'
     ]) ?>
+
 </header>
 <body>
 <main>

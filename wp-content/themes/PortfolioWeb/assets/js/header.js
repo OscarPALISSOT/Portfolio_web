@@ -1,4 +1,4 @@
-window.onload = function (){
+document.addEventListener("DOMContentLoaded", function(event) {
 
     // hamburger menu
     const hamburgerToggle = document.querySelector('.hamburger__toggle');
@@ -9,4 +9,4 @@ window.onload = function (){
         document.body.classList.toggle('noScroll');
     })
 
-}
+});

@@ -1,4 +1,4 @@
-window.onload = function (){
+document.addEventListener("DOMContentLoaded", function(event) {
 
     // roll effect
     let links = document.getElementsByClassName('footerCol')[1].getElementsByTagName('ul')[0].getElementsByTagName('a');
@@ -12,7 +12,6 @@ window.onload = function (){
     }
 
     // motion effect
-
     const socialLinks = document.getElementsByClassName('social__link');
     const motionZone = {
         x: 100,
@@ -25,7 +24,7 @@ window.onload = function (){
         link.addEventListener('mousemove', function (e){
             let xCor = e.pageX - x
             let yCor = e.pageY - y;
-            console.log('move:', xCor, yCor)
+            console.log(xCor, yCor)
             if (Math.abs(xCor) > motionZone.x || Math.abs(yCor) > motionZone.y){
                 link.style.transform = 'none'
             }else{
@@ -35,4 +34,5 @@ window.onload = function (){
         })
     }
 
-}
+});
+

@@ -23,39 +23,62 @@ header .header__logo{
     height: 100vH;
 }
 
+
+/* menu items */
+
 header .nav_menu{
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+
     margin: 0 -2rem 2rem 100%;
+    padding: 0 2rem;
+
+    font-size: 3rem;
+
     background: rgba(255, 255, 255, 0);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.7px);
     -webkit-backdrop-filter: blur(5.7px);
+
     transition: all 0.3s ease-in-out;
+}
+
+header .nav_menu li{
+    margin-bottom: 0.2rem;
+}
+
+.nav_menu .current-menu-item{
+    font-weight: bold;
 }
 
 header .nav_menu__expanded{
     margin-left: 0;
 }
 
+
+/* hamburger menu btn */
+
 .hamburger__toggle{
     cursor: pointer;
     padding: 0.6rem 0;
     z-index: 1;
+    overflow: hidden;
 }
 
 .hamburger__btn{
     height: 3px;
     width: 2rem;
     background: var(--mainFont);
+    transition: all 0.3s ease-out;
 }
 
 .hamburger__btn:after, .hamburger__btn:before{
@@ -68,11 +91,24 @@ header .nav_menu__expanded{
 
 .hamburger__btn::before{
     transform: translateY(-0.6rem);
+    transition: all 0.3s ease-out;
 }
 .hamburger__btn::after{
     transform: translateY(0.6rem);
+    transition: all 0.3s ease-out;
 }
 
+.hamburger__toggle__expanded .hamburger__btn{
+    transform: translateX(-2rem);
+    background: transparent;
+}
+
+.hamburger__toggle__expanded .hamburger__btn::before{
+    transform: translateY(0) translateX(2rem) rotate(45deg);
+}
+.hamburger__toggle__expanded .hamburger__btn::after{
+    transform: translateY(0) translateX(2rem) rotate(-45deg);
+}
 /* media queries */
 
 /* Small devices (landscape phones, 576px and up) */
@@ -92,13 +128,23 @@ header .nav_menu__expanded{
     header .nav_menu{
         position: static;
         flex-direction: row;
+        align-items: center;
         width: auto;
         height: auto;
         margin: 0;
+        font-size: 1.5rem;
     }
 
     header .nav_menu li{
         margin: 0 0 0 1rem;
+    }
+
+    header .nav_menu a span{
+        transition: font-size 0.2s ease-in-out;
+    }
+
+    header .nav_menu a span:hover{
+        font-size: 4rem;
     }
 }
 

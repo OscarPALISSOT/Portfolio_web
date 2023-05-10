@@ -22,9 +22,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let x = link.offsetLeft + link.offsetWidth/2;
         let y = link.offsetTop + link.offsetHeight/2
         link.addEventListener('mousemove', function (e){
-            let xCor = e.pageX - x
+            let xCor = e.pageX - x;
             let yCor = e.pageY - y;
-            console.log(xCor, yCor)
             if (Math.abs(xCor) > motionZone.x || Math.abs(yCor) > motionZone.y){
                 link.style.transform = 'none'
             }else{

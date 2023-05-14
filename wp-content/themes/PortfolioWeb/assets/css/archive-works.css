@@ -1,0 +1,21 @@
+.gallery{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.work__item{
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.work__item img{
+    width: 100%;
+    height: auto;
+}

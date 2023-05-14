@@ -23,7 +23,7 @@ html, body{
 
 body{
     padding: 0 2rem 0 2rem;
-    background: var(--mainBackgroundFade);
+    background: var(--mainBackground);
     color: var(--mainFont);
     font-family: 'Inter', serif;
 }
@@ -35,6 +35,25 @@ li{
 a{
     color: var(--mainFont);
     text-decoration: none;
+}
+
+
+/* scroll bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--mainBackground);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--mainFont);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--mainFontHover);
 }
 
 

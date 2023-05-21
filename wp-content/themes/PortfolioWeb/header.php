@@ -8,20 +8,22 @@
     <?php wp_head() ?>
 </head>
 <header>
-    <a href="<?= home_url('/'); ?>" title="<?= __('Homepage', 'portfolio') ?>">
-        <img class="header__logo" src="<?= get_theme_mod('logo') ?>" alt="logo">
-    </a>
+    <div class="header__items">
+        <a href="<?= home_url('/'); ?>" title="<?= __('Homepage', 'portfolio') ?>">
+            <img class="header__logo" src="<?= get_theme_mod('logo') ?>" alt="logo">
+        </a>
 
-    <div class="hamburger__toggle">
-        <div class="hamburger__btn"></div>
+        <div class="hamburger__toggle">
+            <div class="hamburger__btn"></div>
+        </div>
+
+        <?php wp_nav_menu([
+            'theme_location' => 'header',
+            'container' => false,
+            'menu_class' => 'nav_menu'
+        ]) ?>
     </div>
-
-    <?php wp_nav_menu([
-	    'theme_location' => 'header',
-        'container' => false,
-        'menu_class' => 'nav_menu'
-    ]) ?>
-
+    <div class="header__border"></div>
 </header>
 <body>
 <main>

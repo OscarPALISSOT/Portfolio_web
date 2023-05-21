@@ -20,4 +20,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
         link.innerHTML = wrappedLetters.join('');
     });
 
+    //border on scroll
+    const header = document.querySelector('.header__border');
+
+    window.addEventListener('scroll', function(){
+        if(window.scrollY > 0){
+            header.classList.add('header__border__active');
+        } else {
+            header.classList.remove('header__border__active');
+        }
+    });
+
 });

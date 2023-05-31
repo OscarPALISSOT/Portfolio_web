@@ -41,6 +41,7 @@
             <img src="https://picsum.photos/600/400" alt="">
             <h2 class="work__item__title">Un projet</h2>
         </div>
+        <div class="work__item last__work__item"><h1>Lorem ipsum dolor sit amet</h1></div>
     </div>
 </div>
 

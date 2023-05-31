@@ -40,7 +40,7 @@
     .gallery{
         flex-direction: row;
         justify-content: end;
-        align-items: end;
+        align-items: start;
     }
 
     .left__gallery .work__item{
@@ -53,12 +53,23 @@
         border-bottom: none;
     }
 
-    .work__item:last-of-type{
+    .left__gallery .work__item:last-of-type{
         border-bottom: 1px solid var(--mainFont);
     }
 
-    .first__work__item{
+    .first__work__item, .last__work__item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border: none;
+    }
+
+    .last__work__item{
+        border-top: 1px solid var(--mainFont);
+    }
+
+    .right__gallery {
+        transition: transform 0.1s ease-out;
     }
 }
 

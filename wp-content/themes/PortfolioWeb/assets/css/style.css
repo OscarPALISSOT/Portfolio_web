@@ -25,7 +25,7 @@ body{
     padding: 0 2rem 0 2rem;
     background: var(--mainBackground);
     color: var(--mainFont);
-    font-family: 'Inter', serif;
+    font-family: 'Roboto Flex', sans-serif;
 }
 
 li{

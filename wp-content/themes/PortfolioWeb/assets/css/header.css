@@ -147,7 +147,7 @@ header .nav_menu__expanded{
         width: auto;
         height: auto;
         margin: 0;
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     header .nav_menu li{
@@ -155,11 +155,16 @@ header .nav_menu__expanded{
     }
 
     header .nav_menu a span{
-        transition: font-size 0.2s ease-in-out;
+        font-variation-settings: 'YTLC' 514, "YTAS" 750, "YTUC" 712;
+        transition: font-variation-settings 0.3s ease;
+    }
+
+    header .nav_menu a:hover span {
+        font-variation-settings: 'YTLC' 416, "YTAS" 649, "YTUC" 528;
     }
 
     header .nav_menu a span:hover{
-        font-size: 4rem;
+        font-variation-settings: 'YTLC' 570, "YTAS" 854, "YTUC" 760;
     }
 }
 

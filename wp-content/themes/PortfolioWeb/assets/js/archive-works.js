@@ -16,24 +16,34 @@ addEventListener("load", function(event) {
         lastWorkItem.style.height = workItemHeight + 'px';
     });
 
-    // Size gallery to the height of the left gallery
+    // Create a condition that targets viewports at least 768px wide
+    const mediaQuery = window.matchMedia('(min-width: 768px)')
 
-    const leftGallery = document.querySelector('.left__gallery');
-    const gallery = document.querySelector('.gallery');
-    const leftGalleryHeight = leftGallery.offsetHeight;
-    gallery.style.height = leftGalleryHeight + 'px';
+    function handleTabletChange(e) {
+        if (e.matches) {
 
+            // Size gallery to the height of the left gallery
 
-    // scroll effect on the right gallery
+            const leftGallery = document.querySelector('.left__gallery');
+            const gallery = document.querySelector('.gallery');
+            const leftGalleryHeight = leftGallery.offsetHeight;
+            gallery.style.height = leftGalleryHeight + 'px';
 
-    const rightGallery = document.querySelector('.right__gallery');
-    window.addEventListener("scroll", () => {
-        let scrollTop = window.scrollY;
-        let docHeight = document.body.offsetHeight;
-        let winHeight = window.innerHeight;
-        let scrollPercent = scrollTop / (docHeight - winHeight);
-        console.log(scrollPercent);
-        rightGallery.style.transform = 'translateY(' + scrollPercent * -1 * leftGalleryHeight + 'px)';
-    });
+            // scroll effect on the right gallery
+            const rightGallery = document.querySelector('.right__gallery');
+            window.addEventListener("scroll", () => {
+                let scrollTop = window.scrollY;
+                let docHeight = document.body.offsetHeight;
+                let winHeight = window.innerHeight;
+                let scrollPercent = scrollTop / (docHeight - winHeight);
+                rightGallery.style.transform = 'translateY(' + scrollPercent * -0.25 * leftGalleryHeight + 'px)';
+            });
+        }
+    }
+
+    mediaQuery.addEventListener('change', handleTabletChange)
+
+    // Initial check
+    handleTabletChange(mediaQuery)
 
 });

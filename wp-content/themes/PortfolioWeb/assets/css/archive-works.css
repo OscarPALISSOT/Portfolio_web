@@ -41,6 +41,7 @@
         flex-direction: row;
         justify-content: end;
         align-items: start;
+        overflow: hidden;
     }
 
     .left__gallery .work__item{
@@ -66,6 +67,7 @@
 
     .last__work__item{
         border-top: 1px solid var(--mainFont);
+        border-left: 1px solid var(--mainFont);
     }
 
     .right__gallery {

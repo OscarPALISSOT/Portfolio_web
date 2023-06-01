@@ -1,6 +1,6 @@
 :root {
     --mainBackgroundFade: linear-gradient(245deg, rgba(41,46,73,1) 0%, rgba(83,105,118,1) 100%);
-    --mainBackground: #00a099;
+    --mainBackground: #282828;
     --mainFont: #fdfdfd;
     --mainFontHover: rgba(253, 253, 253, 0.65);
     --mainFontFilter:invert(100%) sepia(3%) saturate(179%) hue-rotate(326deg) brightness(116%) contrast(98%);

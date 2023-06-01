@@ -11,6 +11,10 @@
     display: none;
 }
 
+.last__work__item{
+    display: none;
+}
+
 .work__item{
     padding-bottom: 2rem;
 }
@@ -33,9 +37,6 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    .first__work__item{
-        display: block;
-    }
 
     .gallery{
         flex-direction: row;

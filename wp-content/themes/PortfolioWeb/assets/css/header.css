@@ -154,18 +154,6 @@ header .nav_menu__expanded{
         margin: 0 0 0 1rem;
     }
 
-    header .nav_menu a span{
-        font-variation-settings: 'YTLC' 514, "YTAS" 750, "YTUC" 712;
-        transition: font-variation-settings 0.3s ease;
-    }
-
-    header .nav_menu a:hover span {
-        font-variation-settings: 'YTLC' 416, "YTAS" 649, "YTUC" 528;
-    }
-
-    header .nav_menu a span:hover{
-        font-variation-settings: 'YTLC' 570, "YTAS" 854, "YTUC" 760;
-    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

@@ -10,16 +10,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.body.classList.toggle('noScroll');
     })
 
-
-    // wrap letters in span
-    const links = menu.querySelectorAll('a');
-    links.forEach(link => {
-        const text = link.textContent;
-        const letters = text.split('');
-        const wrappedLetters = letters.map(letter => `<span>${letter}</span>`);
-        link.innerHTML = wrappedLetters.join('');
-    });
-
     //border on scroll
     const header = document.querySelector('.header__border');
 

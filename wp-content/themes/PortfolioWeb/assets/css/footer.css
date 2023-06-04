@@ -75,22 +75,3 @@ footer .footerCol:not(:last-of-type) {
 .textwidget p{
     cursor: default;
 }
-
-/* roll effect */
-
-.footerCol li a{
-    transition: transform .5s ease-in-out;
-}
-
-.footerCol li{
-    width: max-content;
-    overflow: hidden;
-}
-
-.footerCol li:hover a{
-    transform: translateY(-2rem);
-}
-
-.afterLinks{
-    display: block;
-}

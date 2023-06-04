@@ -20,7 +20,7 @@
         <?php wp_nav_menu([
             'theme_location' => 'header',
             'container' => false,
-            'menu_class' => 'nav_menu'
+            'menu_class' => 'nav_menu',
         ]) ?>
     </div>
     <div class="header__border"></div>

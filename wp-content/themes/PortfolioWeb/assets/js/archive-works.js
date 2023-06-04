@@ -35,7 +35,7 @@ addEventListener("load", function(event) {
                 let scrollTop = window.scrollY;
                 let docHeight = document.body.offsetHeight;
                 let winHeight = window.innerHeight;
-                let scrollPercent = scrollTop / (docHeight - winHeight);
+                let scrollPercent = (scrollTop / (docHeight - winHeight)) > 1 ? 1 : scrollTop / (docHeight - winHeight);
                 rightGallery.style.transform = 'translateY(' + scrollPercent * -0.25 * leftGalleryHeight + 'px)';
             });
         }

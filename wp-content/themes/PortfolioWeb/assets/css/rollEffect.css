@@ -10,7 +10,7 @@
 }
 
 .roll__effect:hover > *{
-    transform: translateY(-1.2em);
+    transform: translateY(-1.3em);
 }
 
 .afterRollElements{

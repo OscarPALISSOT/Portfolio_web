@@ -59,17 +59,18 @@ header .nav_menu{
 
     font-size: 3rem;
 
-    background: rgba(255, 255, 255, 0);
+    background: rgba(0, 0, 0, 0.55);
     border-radius: 16px;
-    backdrop-filter: blur(5.7px);
-    -webkit-backdrop-filter: blur(5.7px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.4px);
+    -webkit-backdrop-filter: blur(10.4px);
 
     transition: all 0.3s ease-in-out;
 }
 
 header .nav_menu li{
     margin-bottom: 0.2rem;
-    height: 3rem;
+    height: 3.2rem;
 }
 header .nav_menu li a{
     display: block;

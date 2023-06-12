@@ -1,0 +1,23 @@
+.carrousel .carrousel__container img{
+    width: 100%;
+    height: auto;
+}
+
+.carrousel .carrousel__container > *{
+    width: 100% !important;
+    height: auto;
+}
+
+.carrousel{
+    position: relative;
+}
+
+.carrousel__container::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.carrousel__item{
+    float: left;
+}

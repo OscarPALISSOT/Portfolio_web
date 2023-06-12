@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // roll effect
     let rollElements = document.querySelectorAll('.roll__effect');
 
-    console.log(rollElements);
     for (let i=0; i<rollElements.length; i++){
         let rollElement = rollElements[i].children[0];
         let text = rollElement.innerHTML;

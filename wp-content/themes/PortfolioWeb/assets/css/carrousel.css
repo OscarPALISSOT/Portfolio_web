@@ -1,15 +1,16 @@
 .carrousel .carrousel__container img{
+    display: block;
     width: 100%;
-    height: auto;
-}
-
-.carrousel .carrousel__container > *{
-    width: 100% !important;
     height: auto;
 }
 
 .carrousel{
     position: relative;
+}
+
+.carrousel__container{
+    transition: transform 0.3s ease-out;
+    transform: translate3d(0, 0, 0);
 }
 
 .carrousel__container::after{
@@ -20,4 +21,24 @@
 
 .carrousel__item{
     float: left;
+}
+
+.carrousel__item > *{
+    padding: 0 0.5rem !important;
+}
+
+.carrousel__next, .carrousel__prev{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background: var(--mainFont);
+    top: 50%;
+    margin-top: -20px;
+    cursor: pointer;
+    right: -20px;
+}
+
+.carrousel__prev{
+    right: auto;
+    left: -20px;
 }

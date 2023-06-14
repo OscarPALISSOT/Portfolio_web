@@ -153,6 +153,7 @@ header .nav_menu__expanded{
         height: auto;
         margin: 0;
         font-size: 2rem;
+        background: var(--mainBackground);
     }
 
     header .nav_menu li{

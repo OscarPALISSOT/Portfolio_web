@@ -36,8 +36,16 @@ class Carrousel {
         this.setStyle();
         this.createNavigation();
         this.onResize();
-
         window.addEventListener('resize', this.onResize.bind(this));
+
+        // Keyboard navigation
+        this.root.addEventListener('keyup', (e) => {
+            if (e.key === 'ArrowLeft'){
+                this.prev();
+            } else if (e.key === 'ArrowRight'){
+                this.next();
+            }
+        })
     }
 
 

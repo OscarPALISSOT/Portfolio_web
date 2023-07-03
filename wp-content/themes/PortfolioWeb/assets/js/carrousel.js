@@ -16,10 +16,13 @@ class Carrousel {
         }, options)
 
         let children = [].slice.call(element.children);
+        this.isMobile = false;
         this.currentItem = 0;
 
         this.root = this.createDivWithClass('carrousel');
         this.container = this.createDivWithClass('carrousel__container');
+
+        this.root.setAttribute('tabindex', '0');
 
         this.root.appendChild(this.container);
         this.element.appendChild(this.root);
@@ -32,6 +35,9 @@ class Carrousel {
         })
         this.setStyle();
         this.createNavigation();
+        this.onResize();
+
+        window.addEventListener('resize', this.onResize.bind(this));
     }
 
 
@@ -39,9 +45,9 @@ class Carrousel {
      * Applique les bonnes dimensions aux éléments du carrousel
      */
     setStyle() {
-        let ratio = this.items.length / this.options.slidesVisible;
+        let ratio = this.items.length / this.slidesVisible;
         this.container.style.width = (ratio * 100) + "%";
-        this.items.forEach(item => item.style.width = ((100 / this.options.slidesVisible) / ratio) + "%");
+        this.items.forEach(item => item.style.width = ((100 / this.slidesVisible) / ratio) + "%");
     }
 
     createNavigation() {
@@ -54,11 +60,11 @@ class Carrousel {
     }
 
     next() {
-        this.goToItem(this.currentItem + this.options.slidesToScroll);
+        this.goToItem(this.currentItem + this.slidesToScroll);
     }
 
     prev() {
-        this.goToItem(this.currentItem - this.options.slidesToScroll);
+        this.goToItem(this.currentItem - this.slidesToScroll);
     }
 
     /**
@@ -67,8 +73,8 @@ class Carrousel {
      */
     goToItem(index) {
         if (index < 0) {
-            index = this.items.length - this.options.slidesVisible;
-        } else if ( index >= this.items.length || this.items[this.currentItem + this.options.slidesVisible] === undefined) {
+            index = this.items.length - this.slidesVisible;
+        } else if (index >= this.items.length || (this.items[this.currentItem + this.slidesVisible] === undefined && index > this.currentItem)) {
             index = 0;
         }
 
@@ -77,10 +83,18 @@ class Carrousel {
         this.currentItem = index
     }
 
+    onResize() {
+        let mobile = window.innerWidth < 768;
+        if (mobile !== this.isMobile) {
+            this.isMobile = mobile;
+            this.setStyle();
+        }
+    }
+
 
     /**
      *
-     * @param {string}className
+     * @param {string} className
      * @returns {HTMLElement}
      */
     createDivWithClass(className) {
@@ -88,13 +102,28 @@ class Carrousel {
         div.classList.add(className);
         return div;
     }
+
+
+    /**
+     * @returns {number}
+     */
+    get slidesVisible() {
+        return this.isMobile ? 1 : this.options.slidesVisible;
+    }
+
+    /**
+     * @returns {boolean}
+     */
+    get slidesToScroll() {
+        return this.isMobile ? 1 : this.options.slidesToScroll;
+    }
 }
 
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
 
     new Carrousel(document.querySelector('.wp-block-gallery'), {
         slidesToScroll: 1,
-        slidesVisible: 2
+        slidesVisible: 2,
     });
 });

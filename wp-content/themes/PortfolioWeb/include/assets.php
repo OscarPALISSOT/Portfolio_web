@@ -31,3 +31,21 @@ add_action('wp_enqueue_scripts',  function (){
     is_singular('works') && wp_enqueue_script('carrouselJs', get_template_directory_uri() . '/assets/js/carrousel.js', [], false, true);
 });
 
+
+
+
+function add_type_attribute($tag, $handle, $src) {
+
+    $script_handles = array(
+        'carrouselJs'
+    );
+
+    if ( ! in_array($handle, $script_handles)) {
+        return $tag;
+    }
+    // change the script tag by adding type="module" and return it.
+    $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
+    return $tag;
+}
+
+add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);

@@ -1,3 +1,5 @@
+import {CarrouselTouchPlugin} from "./carrouselTouchPlugin.js";
+
 class Carrousel {
 
     /**
@@ -30,7 +32,6 @@ class Carrousel {
 
         this.root.appendChild(this.container);
         this.element.appendChild(this.root);
-
         this.moveCallbacks = [];
 
         this.items = children.map((child) => {
@@ -54,6 +55,9 @@ class Carrousel {
                 this.next();
             }
         })
+
+        // Touch navigation
+        new CarrouselTouchPlugin(this);
     }
 
 
@@ -167,6 +171,15 @@ class Carrousel {
         let div = document.createElement('div');
         div.classList.add(className);
         return div;
+    }
+
+
+    disableTransition() {
+        this.container.style.transition = 'none';
+    }
+
+    enableTransition() {
+        this.container.style.transition = '';
     }
 
 

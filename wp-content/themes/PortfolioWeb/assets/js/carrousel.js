@@ -139,7 +139,7 @@ class Carrousel {
         }
 
         let translateX = index * -100 / this.items.length;
-        this.container.style.transform = 'translate3d(' + translateX + '%, 0, 0)';
+        this.translate(translateX)
         this.currentItem = index
         this.moveCallbacks.forEach(cb => cb(index));
     }
@@ -159,6 +159,13 @@ class Carrousel {
             this.isMobile = mobile;
             this.setStyle();
         }
+    }
+
+    /**
+     * @param {number} percent
+     */
+    translate(percent) {
+        this.container.style.transform = 'translate3d(' + percent + '%, 0, 0)';
     }
 
 
@@ -195,6 +202,21 @@ class Carrousel {
      */
     get slidesToScroll() {
         return this.isMobile ? 1 : this.options.slidesToScroll;
+    }
+
+    /**
+     *
+     * @returns {number}
+     */
+    get containerWidth() {
+        return this.container.offsetWidth;
+    }
+
+    /**
+     * @returns {number}
+     */
+    get carouselWidth() {
+        return this.root.offsetWidth;
     }
 }
 

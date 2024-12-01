@@ -1,0 +1,77 @@
+services:
+  database-portfolio_web:
+    container_name: database-portfolio_web
+    image: mariadb:latest
+    ports:
+      - 65052:3306
+    volumes:
+      - ./backend/database:/var/lib/mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+  cache-portfolio_web:
+    container_name: cache-portfolio_web
+    image: redis:latest
+
+  directus-portfolio_web:
+    container_name: directus-portfolio_web
+    image: directus/directus:latest
+    ports:
+      - 8057:8055
+    volumes:
+      - ./backend/directus/uploads:/directus/backend/uploads
+      - ./backend/directus/database:/directus/database
+      - ./backend/directus/extensions:/directus/extensions
+    depends_on:
+      - cache-portfolio_web
+      - database-portfolio_web
+    environment:
+      KEY: ${KEY}
+      SECRET: ${SECRET}
+      PUBLIC_URL: ${PUBLIC_URL}
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: "*"
+
+      # DB CONFIGURATION
+      DB_CLIENT: ${DB_CLIENT}
+      DB_HOST: database-portfolio_web
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+
+      REDIS_HOST: cache-portfolio_web
+      REDIS_PORT: 6379
+
+      CACHE_STORE: "redis"
+      RATE_LIMITER_STORE: "redis"
+      SYNCHRONIZATION_STORE: "redis"
+      MESSENGER_STORE: "redis"
+
+      # DEFAULT ADMIN USER
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+
+      #WEBSOCKETS
+      WEBSOCKETS_ENABLED: "true"
+      WEBSOCKETS_REST_ENABLED: "true"
+      WEBSOCKETS_REST_AUTH: "handshake"
+      WEBSOCKETS_REST_AUTH_TIMEOUT: 15
+
+      #STORAGE
+      STORAGE_LOCATIONS: "local"
+      STORAGE_LOCAL_DRIVER: "local"
+      STORAGE_LOCAL_ROOT: "./backend/uploads"
+
+#  frontend-portfolio_web:
+#    container_name: frontend-portfolio_web
+#    depends_on:
+#      - directus-portfolio_web
+#    build: frontend
+#    ports:
+#      - 3000:3000
+#    profiles:
+#      - frontend

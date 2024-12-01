@@ -1,4 +1,6 @@
 #ide
-.env
 .idea
 .vscode
+
+#conf
+.env

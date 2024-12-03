@@ -1,0 +1,8 @@
+:root{
+    --primary: #f1f1f1;
+    --secondary: #e1e1e1;
+    --primaryHover: rgba(241, 241, 241, 0.8);
+    --secondaryHover: rgba(225, 225, 225, 0.8);
+    --background: #090909;
+    --text: #ffffff;
+}

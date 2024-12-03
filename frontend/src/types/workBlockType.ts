@@ -1,0 +1,3 @@
+type WorkBlockType = {
+    link: string;
+}

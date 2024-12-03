@@ -17,7 +17,7 @@ export default {
         'text': 'var(--text)',
       },
       fontFamily: {
-        poppins: ['var(--Roboto)', 'sans-serif'],
+        roboto: ['var(--Roboto)', 'sans-serif'],
       },
     },
   },

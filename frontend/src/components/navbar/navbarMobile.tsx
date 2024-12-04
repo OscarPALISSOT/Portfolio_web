@@ -41,12 +41,12 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
                         className={'cursor-pointer py-2 overflow-hidden'}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}>
                         <div
-                            className={`h-1 rounded w-8 bg-fontColor duration-300 ease-out transition-all before:content-[""] before:h-1 before:rounded before:w-8 before:absolute before:bg-fontColor after:content-[""] after:h-1 after:rounded after:w-8 after:absolute after:bg-fontColor before:-translate-y-2 after:translate-y-2 before:duration-300 before:transition-all before:ease-out after:duration-300 after:transition-all after:ease-out ${isMenuOpen && '-translate-x-8 bg-transparent before:translate-x-8 after:translate-x-8 before:rotate-45 before:translate-y-0 after:translate-y-[0] after:-rotate-45'}`}
+                            className={`h-0.5 w-8 bg-text duration-300 ease-out transition-all before:content-[""] before:h-0.5 before:w-8 before:absolute before:bg-text after:content-[""] after:h-0.5 after:w-8 after:absolute after:bg-text before:-translate-y-2 after:translate-y-2 before:duration-300 before:transition-all before:ease-out after:duration-300 after:transition-all after:ease-out ${isMenuOpen && '-translate-x-8 bg-transparent before:translate-x-8 after:translate-x-8 before:rotate-45 before:translate-y-0 after:translate-y-[0] after:-rotate-45'}`}
                         />
                     </div>
                 </div>
                 <div
-                    className={`h-[3px] -mx-8 md:-mx-24 bg-black origin-right duration-500 scale-x-0 ease-in ${scrollY > 0 && 'scale-x-100'} ${isMenuOpen && 'hidden'}`}
+                    className={`h-0.5 -mx-8 md:-mx-24 bg-black origin-right duration-500 scale-x-0 ease-in ${scrollY > 0 && 'scale-x-100'} ${isMenuOpen && 'hidden'}`}
                 />
 
             </div>
@@ -64,7 +64,7 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
                                       onClick={(e) => {
                                           navTo(e, link)
                                       }}
-                                      className={'before:content-[""] before:absolute before:h-0.5 before:bottom-0.5 before:bg-primary before:transition-transform before:w-full before:left-0 before:ease-out before:duration-300 before:origin-bottom-right before:scale-x-0 hover:before:scale-x-100 hover:before:origin-bottom-left text-4xl font-roboto font-medium'}>
+                                      className={'before:content-[""] before:absolute before:h-0.5 before:bottom-0.5 before:bg-primary before:transition-transform before:w-full before:left-0 before:ease-out before:duration-300 before:origin-bottom-right before:scale-x-0 hover:before:scale-x-100 hover:before:origin-bottom-left text-4xl font-roboto font-light'}>
                                     {link}
                                 </Link>
                             </li>

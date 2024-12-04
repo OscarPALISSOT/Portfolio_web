@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import "@/styles/globals.css";
 import "@/styles/variable.css"
-import {Roboto} from 'next/font/google';
+import {Geist_Mono} from 'next/font/google';
 import {ReactNode} from "react";
 import {createDirectus, readItems, rest} from "@directus/sdk";
 import NavbarMobile from "@/components/navbar/navbarMobile";
@@ -9,12 +9,11 @@ import Navbar from "@/components/navbar/navbar";
 
 const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
 
-
-const roboto = Roboto({
+const geistMono = Geist_Mono({
     weight: ['100', '300', '400', '500', '700', '900'],
     subsets: ['latin'],
     display: 'swap',
-    variable: '--Roboto'
+    variable: '--Geist-Mono',
 })
 
 export const metadata: Metadata = {
@@ -42,7 +41,7 @@ export default async function RootLayout({children}: Readonly<{
 
     return (
         <html lang="en">
-            <body className={`${roboto.variable} bg-background px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}>
+            <body className={`${geistMono.variable} bg-background px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}>
                 <NavbarMobile
                     links={links}
                     logo={logo}

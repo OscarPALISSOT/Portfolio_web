@@ -17,7 +17,7 @@ export default {
         'text': 'var(--text)',
       },
       fontFamily: {
-        roboto: ['var(--Roboto)', 'sans-serif'],
+        roboto: ['var(--Geist-Mono)', 'sans-serif'],
       },
     },
   },

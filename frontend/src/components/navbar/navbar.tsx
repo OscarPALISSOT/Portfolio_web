@@ -26,12 +26,12 @@ const Navbar = ({links, logo}: NavbarProps) => {
                     <span className={"flex items-center gap-6"}>
                         <Link href="/">
                         <Image
-                            className={'h-12 w-auto cursor-pointer hover:scale-105 duration-300 ease-out transition-all'}
+                            className={'h-12 w-auto hover:scale-105 duration-300 ease-out transition-all'}
                             src={process.env.NEXT_PUBLIC_ASSETS_URL + logo + '?key=logo'} alt="logo" width={128}
                             height={128}/>
                     </Link>
                     <Link href="/">
-                        <h1 className={"text-3xl cursor-pointer hover:scale-105 duration-300 ease-out transition-all"}>Oscar PALISSOT</h1>
+                        <h1 className={"text-3xl hover:scale-105 duration-300 ease-out transition-all"}>Oscar PALISSOT</h1>
                     </Link>
                     </span>
                     <div>
@@ -39,7 +39,7 @@ const Navbar = ({links, logo}: NavbarProps) => {
                             {links.map((link, index) => {
                                 return (
                                     <li key={index}
-                                        className={`mx-4 cursor-pointer relative h-8 before:content-[""] before:absolute before:w-0.5 before:bottom-0 before:bg-primary before:transition-transform before:h-full before:-right-1 before:ease-out before:duration-300 before:origin-bottom-right before:scale-y-0 hover:before:scale-y-100 hover:before:origin-top-right ${currentSection === link && 'before:scale-y-100 before:origin-bottom-right'}`}>
+                                        className={`mx-4 relative h-8 before:content-[""] before:absolute before:w-0.5 before:bottom-0 before:bg-primary before:transition-transform before:h-full before:-right-1 before:ease-out before:duration-300 before:origin-bottom-right before:scale-y-0 hover:before:scale-y-100 hover:before:origin-top-right ${currentSection === link && 'before:scale-y-100 before:origin-bottom-right'}`}>
                                         <div className={"overflow-hidden h-full"}>
                                             <div
                                                 className={`h-full hover:-translate-y-full duration-500 text-2xl `}

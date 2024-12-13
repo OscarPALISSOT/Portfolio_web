@@ -15,10 +15,14 @@ export default {
         'secondaryHover': 'var(--secondaryHover)',
         'background': 'var(--background)',
         'text': 'var(--text)',
+        'textHover': 'var(--textHover)',
       },
       fontFamily: {
         roboto: ['var(--Geist-Mono)', 'sans-serif'],
       },
+      transitionProperty: {
+        'cursor': 'height, width, border-color',
+      }
     },
   },
   plugins: [],

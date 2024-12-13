@@ -6,7 +6,8 @@ import {ReactNode} from "react";
 import {createDirectus, readItems, rest} from "@directus/sdk";
 import NavbarMobile from "@/components/navbar/navbarMobile";
 import Navbar from "@/components/navbar/navbar";
-import Cursor from "@/components/cursor";
+import Cursor from "@/components/cursor/cursor";
+import CursorContextProvider from "@/components/cursor/cursorContext";
 
 const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
 
@@ -42,18 +43,20 @@ export default async function RootLayout({children}: Readonly<{
 
     return (
         <html lang="en">
+        <CursorContextProvider>
             <body className={`${geistMono.variable} bg-background px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}>
-                <Cursor/>
-                <NavbarMobile
-                    links={links}
-                    logo={logo}
-                />
-                <Navbar
-                    links={links}
-                    logo={logo}
-                />
-                {children}
+            <Cursor/>
+            <NavbarMobile
+                links={links}
+                logo={logo}
+            />
+            <Navbar
+                links={links}
+                logo={logo}
+            />
+            {children}
             </body>
+        </CursorContextProvider>
         </html>
     );
 }

@@ -43,6 +43,9 @@ a{
   *{
     cursor: none;
   }
+  .show-cursor {
+    cursor: auto !important;
+  }
 }
 
 

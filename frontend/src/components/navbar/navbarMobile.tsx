@@ -29,7 +29,7 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
     return (
         <>
             <div
-                className={`lg:hidden text-2xl transition duration-300 font-bold bg-background font-roboto sticky top-0 -mx-8 md:-mx-24 px-8 -left-8 flex flex-col justify-between w-screen z-40 ${!isMenuOpen && scrollY > 0 && 'shadow-[0_6px_12px_0_rgba(0,0,0,0.12)]'}`}>
+                className={`lg:hidden text-2xl transition duration-300 font-bold bg-background font-geistMono sticky top-0 -mx-8 md:-mx-24 px-8 -left-8 flex flex-col justify-between w-screen z-40 ${!isMenuOpen && scrollY > 0 && 'shadow-[0_6px_12px_0_rgba(0,0,0,0.12)]'}`}>
                 <div className={'flex flex-row justify-between items-center h-20 w-full'}>
                     <Link href="/">
                         <Image
@@ -51,8 +51,8 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
 
             </div>
             <div
-                className={`flex flex-row justify-center top-20 left-0 fixed h-screen w-screen bg-background scale-y-0 duration-500 ease-in-out transition-all origin-top p-6 z-40 ${isMenuOpen && 'scale-y-100 duration-500'}`}>
-                <ul className={'flex flex-col'}>
+                className={`flex flex-row justify-start top-20 left-0 fixed h-screen w-screen bg-background scale-y-0 duration-500 ease-in-out transition-all origin-top p-6 z-40 ${isMenuOpen && 'scale-y-100 duration-500'}`}>
+                <ul className={'flex flex-col ms-6'}>
                     {links.map((link, index) => {
                         return (
                             <li
@@ -64,7 +64,7 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
                                       onClick={(e) => {
                                           navTo(e, link)
                                       }}
-                                      className={'before:content-[""] before:absolute before:h-0.5 before:bottom-0.5 before:bg-primary before:transition-transform before:w-full before:left-0 before:ease-out before:duration-300 before:origin-bottom-right before:scale-x-0 hover:before:scale-x-100 hover:before:origin-bottom-left text-4xl font-roboto font-light'}>
+                                      className={'before:content-[""] before:absolute before:h-0.5 before:bottom-0.5 before:bg-primary before:transition-transform before:w-full before:left-0 before:ease-out before:duration-300 before:origin-bottom-right before:scale-x-0 hover:before:scale-x-100 hover:before:origin-bottom-left text-4xl font-geistMono font-light'}>
                                     {link}
                                 </Link>
                             </li>

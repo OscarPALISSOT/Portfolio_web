@@ -23,7 +23,7 @@ const Navbar = ({links, logo}: NavbarProps) => {
     return (
         <>
             <div
-                className={`hidden lg:flex transition duration-300 font-extralight bg-background font-roboto sticky top-0 2xl:px-64 2xl:-mx-64 -mx-24 px-24 flex-col justify-between z-50 ${scrollY > 3 && 'shadow-[0_6px_12px_0_rgba(0,0,0,0.12)] '}`}>
+                className={`hidden lg:flex transition duration-300 font-extralight bg-background font-geistMono sticky top-0 2xl:px-64 2xl:-mx-64 -mx-24 px-24 flex-col justify-between z-50 ${scrollY > 3 && 'shadow-[0_6px_12px_0_rgba(0,0,0,0.12)] '}`}>
                 <div className={'flex flex-row justify-between items-center h-24'}>
                     <span className={"flex items-center gap-6"}>
                         <Link
@@ -34,12 +34,6 @@ const Navbar = ({links, logo}: NavbarProps) => {
                                 className={'h-12 w-auto hover:scale-105 duration-300 ease-out transition-all'}
                                 src={process.env.NEXT_PUBLIC_ASSETS_URL + logo + '?key=logo'} alt="logo" width={128}
                                 height={128}/>
-                        </Link>
-                        <Link
-                            href="/"
-                            {...cursorHandlers}
-                        >
-                            <h1 className={"text-3xl hover:scale-105 duration-300 ease-out transition-all"}>Oscar PALISSOT</h1>
                         </Link>
                     </span>
                     <div>

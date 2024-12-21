@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import "@/styles/globals.css";
 import "@/styles/variable.css"
 import {Geist_Mono} from 'next/font/google';
+import {Vazirmatn} from 'next/font/google';
 import {ReactNode} from "react";
 import {createDirectus, readItems, rest} from "@directus/sdk";
 import NavbarMobile from "@/components/navbar/navbarMobile";
@@ -18,8 +19,14 @@ const geistMono = Geist_Mono({
     variable: '--Geist-Mono',
 })
 
+const vazirmatn = Vazirmatn({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--Vazirmatn',
+})
+
 export const metadata: Metadata = {
-    title: 'Oscar PALISSOT | Portfolio développeur',
+    title: 'Oscar PALISSOT | Développeur logiciel et web',
 };
 
 export default async function RootLayout({children}: Readonly<{
@@ -28,33 +35,33 @@ export default async function RootLayout({children}: Readonly<{
 
     const about = await client.request(
         readItems('about', {
-            fields: ['*', {}],
+            fields: ['link, logo', {}],
         })
     ) as unknown as AboutType;
 
     const workBlock = await client.request(
         readItems('work_block', {
-            fields: ['*', {}],
+            fields: ['link', {}],
         })
     ) as unknown as WorkBlockType;
 
-    const links = [about.link, workBlock.link];
+    const links = [workBlock.link, about.link];
     const logo = about.logo
 
     return (
         <html lang="en">
         <CursorContextProvider>
-            <body className={`${geistMono.variable} bg-background px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}>
-            <Cursor/>
-            <NavbarMobile
-                links={links}
-                logo={logo}
-            />
-            <Navbar
-                links={links}
-                logo={logo}
-            />
-            {children}
+            <body className={`${geistMono.variable} ${vazirmatn.variable} font-geistMono bg-background px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}>
+                <Cursor/>
+                <NavbarMobile
+                    links={links}
+                    logo={logo}
+                />
+                <Navbar
+                    links={links}
+                    logo={logo}
+                />
+                {children}
             </body>
         </CursorContextProvider>
         </html>

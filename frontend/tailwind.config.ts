@@ -18,7 +18,8 @@ export default {
         'textHover': 'var(--textHover)',
       },
       fontFamily: {
-        roboto: ['var(--Geist-Mono)', 'sans-serif'],
+        geistMono: ['var(--Geist-Mono)', 'sans-serif'],
+        vazirmatn: ['var(--Vazirmatn)', 'sans-serif'],
       },
       transitionProperty: {
         'cursor': 'height, width, border-color',

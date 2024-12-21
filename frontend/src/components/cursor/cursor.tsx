@@ -73,7 +73,7 @@ const Cursor = () => {
     return (
         <>
             <div
-                className={"hidden lg:block absolute left-0 top-0 z-[9999] pointer-events-none h-1.5 w-1.5 bg-text rounded-full"}
+                className={`hidden lg:block absolute left-0 top-0 z-[9999] pointer-events-none h-1.5 w-1.5 bg-text rounded-full transition-colors duration-300 ${cursor.active && 'border bg-transparent'}`}
                 ref={cursorRef}
             />
             <div

@@ -30,6 +30,18 @@ a{
   text-decoration: none;
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--textHover);
+}
 
 @media (min-width: 640px) {
 
@@ -47,16 +59,7 @@ a{
     cursor: auto !important;
   }
   ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--text);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--textHover);
+    width: 4px;
   }
 }
 

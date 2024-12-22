@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import useScroll from "@/hooks/useScrool";
 import Link from "next/link";
 import Image from "next/image";
 import useCurrentSection from "@/hooks/useCurrentSection";
@@ -15,7 +14,6 @@ interface NavbarProps {
 
 const Navbar = ({links, logo}: NavbarProps) => {
 
-    const scrollY = useScroll();
     const currentSection = useCurrentSection(links);
     const navTo = useNavTo();
     const cursorHandlers = useCursorHandlers();
@@ -23,7 +21,7 @@ const Navbar = ({links, logo}: NavbarProps) => {
     return (
         <>
             <div
-                className={`hidden lg:flex transition duration-300 font-extralight bg-background font-geistMono sticky top-0 2xl:px-64 2xl:-mx-64 -mx-24 px-24 flex-col justify-between z-50 ${scrollY > 3 && 'shadow-[0_6px_12px_0_rgba(0,0,0,0.12)] '}`}>
+                className={'hidden lg:flex transition duration-300 border-b border-text font-extralight bg-background font-geistMono sticky top-0 2xl:px-64 2xl:-mx-64 -mx-24 px-24 flex-col justify-between z-50'}>
                 <div className={'flex flex-row justify-between items-center h-24'}>
                     <span className={"flex items-center gap-6"}>
                         <Link
@@ -52,7 +50,6 @@ const Navbar = ({links, logo}: NavbarProps) => {
                                             >
                                                 <p>{link}</p>
                                                 <p>{link}</p>
-                                                <p>{currentSection}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -61,8 +58,6 @@ const Navbar = ({links, logo}: NavbarProps) => {
                         </ul>
                     </div>
                 </div>
-                <div
-                    className={`h-0-5 -mx-8 md:-mx-24 2xl:-mx-64 bg-black origin-right duration-500 scale-x-0 ease-in ${scrollY > 3 && 'scale-x-100'}`}/>
             </div>
         </>
     )

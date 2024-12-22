@@ -1,7 +1,6 @@
 "use client";
 
 import React, {useEffect, useState} from "react";
-import useScroll from "@/hooks/useScrool";
 import Link from "next/link";
 import Image from "next/image";
 import useNavTo from "@/modules/navTo";
@@ -13,7 +12,6 @@ interface NavbarProps {
 
 const NavbarMobile = ({links, logo}: NavbarProps) => {
 
-    const scrollY = useScroll();
     const navTo = useNavTo();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +27,7 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
     return (
         <>
             <div
-                className={`lg:hidden text-2xl transition duration-300 font-bold bg-background font-geistMono sticky top-0 -mx-8 md:-mx-24 px-8 -left-8 flex flex-col justify-between w-screen z-40 ${!isMenuOpen && scrollY > 0 && 'shadow-[0_6px_12px_0_rgba(0,0,0,0.12)]'}`}>
+                className={'lg:hidden border-b border-text text-2xl transition duration-300 font-bold bg-background font-geistMono sticky top-0 -mx-8 md:-mx-24 px-8 -left-8 flex flex-col justify-between w-screen z-40'}>
                 <div className={'flex flex-row justify-between items-center h-20 w-full'}>
                     <Link href="/">
                         <Image
@@ -45,10 +43,6 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
                         />
                     </div>
                 </div>
-                <div
-                    className={`h-0.5 -mx-8 md:-mx-24 bg-black origin-right duration-500 scale-x-0 ease-in ${scrollY > 0 && 'scale-x-100'} ${isMenuOpen && 'hidden'}`}
-                />
-
             </div>
             <div
                 className={`flex flex-row justify-start top-20 left-0 fixed h-screen w-screen bg-background scale-y-0 duration-500 ease-in-out transition-all origin-top p-6 z-40 ${isMenuOpen && 'scale-y-100 duration-500'}`}>

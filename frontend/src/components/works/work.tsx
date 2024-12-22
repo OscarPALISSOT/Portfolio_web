@@ -14,7 +14,7 @@ const Work = ({work}: WorkProps) => {
 
     return (
         <div className={"mb-3 md:m-0 md:border md:border-text w-full md:w-1/2 overflow-hidden"} ref={workRef}>
-            <div className={`h-[${workRef.current ? workRef.current!.clientWidth * 9/16 + 'px' : '100px'}]`}>
+            <div className={`h-[${workRef.current ? workRef.current.clientWidth * 9/16 + 'px' : '100px'}]`}>
                 <Image
                     className={'h-full w-full object-cover'}
                     src={process.env.NEXT_PUBLIC_ASSETS_URL + work.thumbnail}

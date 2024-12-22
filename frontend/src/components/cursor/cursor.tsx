@@ -20,10 +20,10 @@ const Cursor = () => {
         const handleMouseMove = (event: MouseEvent) => {
             if (followRef.current) {
                 positionRef.current.mouse.x = event.clientX - followRef.current.clientWidth/2 - 1;
-                positionRef.current.mouse.y = event.clientY - followRef.current.clientHeight/2 - 1;
+                positionRef.current.mouse.y = event.clientY - followRef.current.clientHeight/2 - 1 + window.scrollY;
             }
             if (cursorRef.current){
-                cursorRef.current.style.transform = `translate3d(${event.clientX - 3}px, ${event.clientY - 3}px, 0)`;
+                cursorRef.current.style.transform = `translate3d(${event.clientX - 3}px, ${event.clientY - 3 + window.scrollY}px, 0)`;
             }
         };
         window.addEventListener('mousemove', handleMouseMove);

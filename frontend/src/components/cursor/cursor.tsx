@@ -5,9 +5,11 @@ import {CursorContext} from "@/components/cursor/cursorContext";
 
 const Cursor = () => {
 
+    const followRefWrapper = useRef<HTMLDivElement>(null);
     const followRef = useRef<HTMLDivElement>(null);
     const cursorRef = useRef<HTMLDivElement>(null);
     const [cursor] = useContext(CursorContext)
+
 
     const positionRef = useRef({
         mouse: { x: 0, y: 0 },
@@ -18,9 +20,9 @@ const Cursor = () => {
 
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
-            if (followRef.current) {
-                positionRef.current.mouse.x = event.clientX - followRef.current.clientWidth/2 - 1;
-                positionRef.current.mouse.y = event.clientY - followRef.current.clientHeight/2 - 1 + window.scrollY;
+            if (followRefWrapper.current) {
+                positionRef.current.mouse.x = event.clientX - followRefWrapper.current.clientWidth/2;
+                positionRef.current.mouse.y = event.clientY - followRefWrapper.current.clientHeight/2 + window.scrollY;
             }
             if (cursorRef.current){
                 cursorRef.current.style.transform = `translate3d(${event.clientX - 3}px, ${event.clientY - 3 + window.scrollY}px, 0)`;
@@ -33,9 +35,16 @@ const Cursor = () => {
     }, []);
 
     useEffect(() => {
+        let isMouseDown = false;
+        const handleMouseDown = () => {
+            isMouseDown = true
+        }
+        const handleMouseUp = () => {
+            isMouseDown = false
+        }
         const followMouse = () => {
-            positionRef.current.key = requestAnimationFrame(followMouse);
 
+            positionRef.current.key = requestAnimationFrame(followMouse);
             const {
                 mouse,
                 destination,
@@ -60,14 +69,21 @@ const Cursor = () => {
                     positionRef.current.destination.y += distance.y;
                 }
             }
-            if (followRef.current) {
-                followRef.current.style.transform = `translate3d(${destination.x}px, ${destination.y}px, 0)`;
+            if (followRefWrapper.current && followRef.current) {
+                followRefWrapper.current.style.transform = `translate3d(${destination.x}px, ${destination.y}px, 0)`;
+                followRef.current.style.transform = `scale(${isMouseDown ? 0.8 : 1})`;
             }
             return () => {
                 cancelAnimationFrame(positionRef.current.key);
             };
         };
         followMouse();
+        window.addEventListener('mousedown', handleMouseDown);
+        window.addEventListener('mouseup', handleMouseUp);
+        return () => {
+            window.removeEventListener('mousedown', handleMouseDown);
+            window.removeEventListener('mouseup', handleMouseUp);
+        }
     }, []);
 
     return (
@@ -77,9 +93,14 @@ const Cursor = () => {
                 ref={cursorRef}
             />
             <div
-                className={`hidden lg:block absolute left-0 top-0 z-[9999] pointer-events-none rounded-full bg-transparent border transition-cursor duration-300 origin-center before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-textHover before:transition before:duration-500 before:rounded-full ${cursor.active ? 'border-transparent h-12 w-12 before:scale-100' : 'border-text h-10 w-10 before:scale-0'}`}
-                ref={followRef}
-            />
+                className={`hidden lg:block absolute left-0 top-0 z-[9999] pointer-events-none origin-center`}
+                ref={followRefWrapper}
+            >
+                <div
+                    className={`hidden lg:block pointer-events-none rounded-full bg-transparent border transition-all duration-150 before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-textHover before:transition before:duration-500 before:rounded-full ${cursor.active ? 'border-transparent h-12 w-12 before:scale-100' : 'border-text h-10 w-10 before:scale-0'}`}
+                    ref={followRef}
+                />
+            </div>
         </>
     )
 }

@@ -21,9 +21,20 @@ export default {
         geistMono: ['var(--Geist-Mono)', 'sans-serif'],
         vazirmatn: ['var(--Vazirmatn)', 'sans-serif'],
       },
-      transitionProperty: {
-        'cursor': 'height, width, border-color',
-      }
+      keyframes: {
+        slide: {
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(-100%)',
+          },
+        },
+      },
+      animation: {
+        slideLeft: 'slide 20s infinite linear',
+        slideRight: 'slide 20s infinite linear reverse',
+      },
     },
   },
   plugins: [],

@@ -1,20 +1,35 @@
 'use client';
 
 import Image from "next/image";
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 import WorkTitle from "@/components/works/workTitle";
 
 interface WorkProps {
-    work: WorkType
+    work: WorkType;
+    isOdd?: boolean;
+    isFirst?: boolean;
+    isLast?: boolean;
 }
 
-const Work = ({work}: WorkProps) => {
+const Work = ({work, isOdd = false, isFirst = false, isLast = false}: WorkProps) => {
 
+    const workWrapperRef = useRef<HTMLDivElement>(null);
     const workRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        if (workRef.current && workWrapperRef.current) {
+            if (isOdd && isFirst) {
+                workRef.current.style.height = Math.round(workWrapperRef.current.clientWidth * 9 / 16) - 1 + 'px';
+            } else {
+                workRef.current.style.height = Math.round(workWrapperRef.current.clientWidth * 9 / 16) + 'px';
+            }
+
+        }
+    }, []);
+
     return (
-        <div className={"mb-3 md:m-0 md:border md:border-text w-full md:w-1/2 overflow-hidden"} ref={workRef}>
-            <div className={`h-[${workRef.current ? workRef.current.clientWidth * 9/16 + 'px' : '100px'}]`}>
+        <div className={`mb-3 md:m-0 md:border md:border-text w-full overflow-hidden ${isOdd && !isLast && 'md:border-r-0'} ${isFirst ? 'md:border-t' : 'md:border-t-0'}`} ref={workWrapperRef}>
+            <div ref={workRef}>
                 <Image
                     className={'h-full w-full object-cover'}
                     src={process.env.NEXT_PUBLIC_ASSETS_URL + work.thumbnail}

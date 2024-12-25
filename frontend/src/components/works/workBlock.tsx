@@ -1,5 +1,5 @@
-import Work from "@/components/works/work";
 import WorkGalleryMobile from "@/components/works/workGalleryMobile";
+import WorkGallery from "@/components/works/workGallery";
 
 interface WorkBlockProps {
     workBlock: WorkBlockType
@@ -8,8 +8,9 @@ interface WorkBlockProps {
 const WorkBlock = ({workBlock}: WorkBlockProps) => {
     return (
         <div className={"mt-14 md:mt-28 mb-6"}>
-            <h1 className={"mb-4 text-xl md:text-2xl lg:text-3xl"}>{workBlock.title}</h1>
+            <h1 className={"mb-4 text-xl md:hidden"}>{workBlock.title}</h1>
             <WorkGalleryMobile works={workBlock.works}/>
+            <WorkGallery works={workBlock.works} title={workBlock.title}/>
         </div>
     )
 }

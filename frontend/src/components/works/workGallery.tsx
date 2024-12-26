@@ -61,7 +61,7 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
                 ))}
                 <div className={"w-full px-5 border border-text border-t-0 flex flex-col items-center justify-evenly"} ref={descriptionRef}>
                     <p className={"text-sm lg:text-lg font-extralight"}>{workBlock.description}</p>
-                    <CvButton cvLink={workBlock.description}/>
+                    <CvButton cvLink={workBlock.cv}/>
                 </div>
             </div>
         </div>

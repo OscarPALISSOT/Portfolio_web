@@ -2,6 +2,6 @@ type AboutType = {
     link: string;
     title: string;
     subtitle: string;
-    text: string;
+    description: string;
     logo: string;
 }

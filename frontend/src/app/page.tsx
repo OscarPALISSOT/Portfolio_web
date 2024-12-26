@@ -2,6 +2,7 @@ import {createDirectus, readItems, rest} from "@directus/sdk";
 import Hero from "@/components/hero";
 import Section from "@/components/section";
 import WorkBlock from "@/components/works/workBlock";
+import About from "@/components/about";
 
 const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
 
@@ -26,6 +27,9 @@ export default async function Home() {
           <Hero aboutBlock={about}/>
           <Section id={workBlock.link}>
               <WorkBlock workBlock={workBlock}/>
+          </Section>
+          <Section id={about.link}>
+              <About about={about}/>
           </Section>
       </div>
   );

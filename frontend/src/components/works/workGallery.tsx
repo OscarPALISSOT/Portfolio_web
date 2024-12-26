@@ -4,20 +4,21 @@ import Work from "@/components/works/work";
 import {useEffect, useRef} from "react";
 
 interface WorkGalleryProps {
-    works: WorkType[];
-    title: string;
+    workBlock: WorkBlockType
 }
 
-const WorkGallery = ({works, title}:WorkGalleryProps) => {
+const WorkGallery = ({workBlock}:WorkGalleryProps) => {
 
     const titleRef = useRef<HTMLDivElement>(null);
+    const descriptionRef = useRef<HTMLDivElement>(null);
     const rightWorksRef = useRef<HTMLDivElement>(null);
-    const evenWorks = works.filter((_, index) => index % 2 === 0);
-    const oddWorks = works.filter((_, index) => index % 2 !== 0);
+    const evenWorks = workBlock.works.filter((_, index) => index % 2 === 0);
+    const oddWorks = workBlock.works.filter((_, index) => index % 2 !== 0);
 
     useEffect(() => {
-        if (titleRef.current) {
+        if (titleRef.current && descriptionRef.current) {
             titleRef.current.style.height = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60) +  'px';
+            descriptionRef.current.style.height = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60) +  'px';
         }
     }, []);
 
@@ -47,16 +48,19 @@ const WorkGallery = ({works, title}:WorkGalleryProps) => {
         <div className={"hidden md:flex flex-row"} id={"workGallery"}>
             <div className={"w-1/2"}>
                 <div className={"m-0 w-full overflow-hidden border-b border-transparent flex items-center justify-center"} ref={titleRef}>
-                    <h1 className={"mb-4 text-xl md:text-2xl lg:text-3xl"}>{title}</h1>
+                    <h1 className={"mb-4 text-2xl lg:text-3xl"}>{workBlock.title}</h1>
                 </div>
                 {oddWorks.map((work: WorkType, index) => (
-                    <Work key={index} work={work} isOdd={true} isFirst={index === 0} isLast={index === oddWorks.length - 1 && works.length % 2 === 0}/>
+                    <Work key={index} work={work} isOdd={true} isFirst={index === 0} isLast={index === oddWorks.length - 1 && workBlock.works.length % 2 === 0}/>
                 ))}
             </div>
             <div className={"w-1/2"} ref={rightWorksRef}>
                 {evenWorks.map((work: WorkType, index) => (
                     <Work key={index} work={work} isFirst={index === 0}/>
                 ))}
+                <div className={"w-full px-6 border border-text border-t-0 flex items-center justify-center"} ref={descriptionRef}>
+                    <p className={"text-sm lg:text-lg font-extralight"}>{workBlock.description}</p>
+                </div>
             </div>
         </div>
     )

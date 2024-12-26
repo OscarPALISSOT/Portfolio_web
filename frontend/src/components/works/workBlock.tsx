@@ -10,7 +10,7 @@ const WorkBlock = ({workBlock}: WorkBlockProps) => {
         <div className={"mt-14 md:mt-28 mb-6"}>
             <h1 className={"mb-4 text-xl md:hidden"}>{workBlock.title}</h1>
             <WorkGalleryMobile works={workBlock.works}/>
-            <WorkGallery works={workBlock.works} title={workBlock.title}/>
+            <WorkGallery workBlock={workBlock}/>
         </div>
     )
 }

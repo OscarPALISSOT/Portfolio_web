@@ -1,15 +1,20 @@
 import Work from "@/components/works/work";
+import CvButton from "@/components/works/cvButton";
 
 interface WorkGalleryMobileProps {
-    works: WorkType[];
+    workBlock: WorkBlockType
 }
 
-const WorkGalleryMobile = ({works}:WorkGalleryMobileProps) => {
+const WorkGalleryMobile = ({workBlock}:WorkGalleryMobileProps) => {
     return (
         <div className={"md:hidden"}>
-            {works.map((work: WorkType, index) => (
+            {workBlock.works.map((work: WorkType, index) => (
                 <Work key={index} work={work}/>
             ))}
+            <div className={'mt-6 flex flex-col gap-6 items-center'}>
+                <p className={"text-base font-extralight"}>{workBlock.description}</p>
+                <CvButton cvLink={workBlock.description}/>
+            </div>
         </div>
     )
 }

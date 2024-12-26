@@ -2,6 +2,7 @@
 
 import Work from "@/components/works/work";
 import {useEffect, useRef} from "react";
+import CvButton from "@/components/works/cvButton";
 
 interface WorkGalleryProps {
     workBlock: WorkBlockType
@@ -58,8 +59,9 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
                 {evenWorks.map((work: WorkType, index) => (
                     <Work key={index} work={work} isFirst={index === 0}/>
                 ))}
-                <div className={"w-full px-6 border border-text border-t-0 flex items-center justify-center"} ref={descriptionRef}>
+                <div className={"w-full px-5 border border-text border-t-0 flex flex-col items-center justify-evenly"} ref={descriptionRef}>
                     <p className={"text-sm lg:text-lg font-extralight"}>{workBlock.description}</p>
+                    <CvButton cvLink={workBlock.description}/>
                 </div>
             </div>
         </div>

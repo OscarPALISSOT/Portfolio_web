@@ -26,7 +26,7 @@ const vazirmatn = Vazirmatn({
 })
 
 export const metadata: Metadata = {
-    title: 'Oscar PALISSOT | Développeur logiciel et web',
+    title: 'Oscar PALISSOT | Développeur web et logiciel',
 };
 
 export default async function RootLayout({children}: Readonly<{

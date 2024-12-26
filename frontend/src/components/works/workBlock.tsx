@@ -9,7 +9,7 @@ const WorkBlock = ({workBlock}: WorkBlockProps) => {
     return (
         <div className={"mt-14 md:mt-28 mb-6"}>
             <h1 className={"mb-4 text-xl md:hidden"}>{workBlock.title}</h1>
-            <WorkGalleryMobile works={workBlock.works}/>
+            <WorkGalleryMobile workBlock={workBlock}/>
             <WorkGallery workBlock={workBlock}/>
         </div>
     )

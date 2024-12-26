@@ -48,7 +48,7 @@ export default async function RootLayout({children}: Readonly<{
 
     const contactBlock = await client.request(
         readItems('contact', {
-            fields: ['link', {}],
+            fields: ['*', {}],
         })
     ) as unknown as ContactType;
 
@@ -68,6 +68,7 @@ export default async function RootLayout({children}: Readonly<{
             <Navbar
                 links={links}
                 logo={logo}
+                contact={contactBlock}
             />
             {children}
             <Footer/>

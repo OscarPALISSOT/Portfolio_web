@@ -1,7 +1,7 @@
-import React from "react";
+import React, {ReactNode} from "react";
 
 interface SectionProps {
-    children: React.ReactNode
+    children: ReactNode
     id: string
 }
 

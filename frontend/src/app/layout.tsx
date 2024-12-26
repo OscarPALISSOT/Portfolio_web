@@ -45,7 +45,13 @@ export default async function RootLayout({children}: Readonly<{
         })
     ) as unknown as WorkBlockType;
 
-    const links = [workBlock.link, about.link];
+    const contactBlock = await client.request(
+        readItems('contact', {
+            fields: ['link', {}],
+        })
+    ) as unknown as ContactType;
+
+    const links = [workBlock.link, about.link, contactBlock.link];
     const logo = about.logo
 
     return (

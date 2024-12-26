@@ -13,7 +13,7 @@ const useCurrentSection = (links: string[]) => {
             sections.forEach(section => {
                 if (section) {
                     const rect = section.getBoundingClientRect();
-                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    if (rect.top <= window.innerHeight * 0.66 && rect.bottom >= window.innerHeight * 0.66) {
                         currentId = section.id;
                     }
                 }

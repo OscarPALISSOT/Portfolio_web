@@ -30,7 +30,7 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
                 const rect = workGallery.getBoundingClientRect();
                 const workHeight = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60);
                 const scrollProgress = (workGallery.clientHeight - (rect.bottom - (window.innerHeight / 3))) / workGallery.clientHeight;
-                if (rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3 && rightWorksRef.current) {
+                if (rect.top <= window.innerHeight / 3 && rightWorksRef.current) {
                     rightWorksRef.current.style.transform = `translate3d(0, ${-workHeight * scrollProgress +  'px'}, 0)`;
                 } else if (rightWorksRef.current){
                     rightWorksRef.current.style.transform = `translate3d(0, 0, 0)`;

@@ -70,12 +70,10 @@ services:
     container_name: frontend-portfolio_web
     depends_on:
       - directus-portfolio_web
-    build:
-      context: frontend
-      args:
-        - NEXT_PUBLIC_DIRECTUS_URL=${NEXT_PUBLIC_DIRECTUS_URL}
-        - NEXT_PUBLIC_ASSETS_URL=${NEXT_PUBLIC_ASSETS_URL}
+    build: frontend
     ports:
       - 3002:3000
+    profiles:
+      - frontend
     env_file:
       - .env

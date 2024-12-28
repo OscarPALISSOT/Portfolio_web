@@ -89,7 +89,7 @@ const Cursor = () => {
     return (
         <>
             <div
-                className={`hidden lg:block absolute left-0 top-0 z-[9999] pointer-events-none h-1.5 w-1.5 bg-text rounded-full transition-colors duration-300 ${cursor.active && 'border bg-transparent'}`}
+                className={`hidden lg:block absolute left-0 top-0 z-[9999] pointer-events-none h-1.5 w-1.5 border-background dark:border-text bg-background dark:bg-text rounded-full transition-colors duration-300 ${cursor.active && 'border bg-transparent dark:bg-transparent'}`}
                 ref={cursorRef}
             />
             <div
@@ -97,7 +97,7 @@ const Cursor = () => {
                 ref={followRefWrapper}
             >
                 <div
-                    className={`hidden lg:block pointer-events-none rounded-full bg-transparent border transition-all duration-150 before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-textHover before:transition before:duration-500 before:rounded-full ${cursor.active ? 'border-transparent h-12 w-12 before:scale-100' : 'border-text h-10 w-10 before:scale-0'}`}
+                    className={`hidden lg:block pointer-events-none rounded-full bg-transparent border transition-all duration-150 before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-backgroundHover dark:before:bg-textHover before:transition before:duration-500 before:rounded-full ${cursor.active ? 'border-transparent h-12 w-12 before:scale-100' : 'border-background dark:border-text h-10 w-10 before:scale-0'}`}
                     ref={followRef}
                 />
             </div>

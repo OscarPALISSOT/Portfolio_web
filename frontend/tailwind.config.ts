@@ -14,6 +14,7 @@ export default {
         'primaryHover': 'var(--primaryHover)',
         'secondaryHover': 'var(--secondaryHover)',
         'background': 'var(--background)',
+        'backgroundHover': 'var(--backgroundHover)',
         'text': 'var(--text)',
         'textHover': 'var(--textHover)',
       },
@@ -40,4 +41,5 @@ export default {
   plugins: [
     require('@tailwindcss/typography'),
   ],
+  darkMode: 'class',
 } satisfies Config;

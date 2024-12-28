@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import useNavTo from "@/modules/navTo";
+import ThemeSwitch from "@/components/navbar/themeSwitch";
 
 interface NavbarProps {
     links: string[];
@@ -27,7 +28,7 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
     return (
         <>
             <div
-                className={'lg:hidden border-b border-text text-2xl transition duration-300 font-bold bg-background font-geistMono sticky top-0 -mx-8 md:-mx-24 px-8 -left-8 flex flex-col justify-between w-screen z-40'}>
+                className={'lg:hidden border-b border-background dark:border-text text-2xl transition duration-300 font-bold bg-primary dark:bg-background font-geistMono sticky top-0 -mx-8 md:-mx-24 px-8 -left-8 flex flex-col justify-between w-screen z-40'}>
                 <div className={'flex flex-row justify-between items-center h-20 w-full'}>
                     <Link href="/">
                         <Image
@@ -39,13 +40,13 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
                         className={'cursor-pointer py-2 overflow-hidden'}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}>
                         <div
-                            className={`h-0.5 w-8 bg-text duration-300 ease-out transition-all before:content-[""] before:h-0.5 before:w-8 before:absolute before:bg-text after:content-[""] after:h-0.5 after:w-8 after:absolute after:bg-text before:-translate-y-2 after:translate-y-2 before:duration-300 before:transition-all before:ease-out after:duration-300 after:transition-all after:ease-out ${isMenuOpen && '-translate-x-8 bg-transparent before:translate-x-8 after:translate-x-8 before:rotate-45 before:translate-y-0 after:translate-y-[0] after:-rotate-45'}`}
+                            className={`h-0.5 w-8 bg-background dark:bg-text duration-300 ease-out transition-all before:content-[""] before:h-0.5 before:w-8 before:absolute before:bg-background dark:before:bg-text after:content-[""] after:h-0.5 after:w-8 after:absolute after:bg-background dark:after:bg-text before:-translate-y-2 after:translate-y-2 before:duration-300 before:transition-all before:ease-out after:duration-300 after:transition-all after:ease-out ${isMenuOpen && '-translate-x-8 bg-transparent before:translate-x-8 after:translate-x-8 before:rotate-45 before:translate-y-0 after:translate-y-[0] after:-rotate-45'}`}
                         />
                     </div>
                 </div>
             </div>
             <div
-                className={`flex flex-row justify-start top-20 left-0 fixed h-screen w-screen bg-background scale-y-0 duration-500 ease-in-out transition-all origin-top p-6 z-40 ${isMenuOpen && 'scale-y-100 duration-500'}`}>
+                className={`flex flex-row justify-start top-20 left-0 fixed h-screen w-screen bg-primary dark:bg-background scale-y-0 duration-500 ease-in-out transition-all origin-top p-6 z-40 ${isMenuOpen && 'scale-y-100 duration-500'}`}>
                 <ul className={'flex flex-col ms-6'}>
                     {links.map((link, index) => {
                         return (
@@ -64,6 +65,7 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
                             </li>
                         )
                     })}
+                    <ThemeSwitch/>
                 </ul>
             </div>
         </>

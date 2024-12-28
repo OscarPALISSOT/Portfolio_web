@@ -4,6 +4,7 @@
     --primaryHover: rgba(241, 241, 241, 0.8);
     --secondaryHover: rgba(225, 225, 225, 0.8);
     --background: #090909;
+    --backgroundHover: rgba(9, 9, 9, 0.25);
     --text: #ffffff;
     --textHover: rgba(255, 255, 255, 0.6);
 }

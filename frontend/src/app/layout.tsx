@@ -13,6 +13,7 @@ import Footer from "@/components/footer";
 import AboutType from "@/types/aboutType";
 import WorkBlockType from "@/types/workBlockType";
 import ContactType from "@/types/contactType";
+import ThemeProviderWrap from "@/components/themeProvider";
 
 const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
 
@@ -59,22 +60,25 @@ export default async function RootLayout({children}: Readonly<{
     const logo = about.logo
 
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning={true}>
         <CursorContextProvider>
             <body
-                className={`${geistMono.variable} ${vazirmatn.variable} font-light text-text font-geistMono bg-background px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}>
-            <Cursor/>
-            <NavbarMobile
-                links={links}
-                logo={logo}
-            />
-            <Navbar
-                links={links}
-                logo={logo}
-                contact={contactBlock}
-            />
-            {children}
-            <Footer/>
+                className={`${geistMono.variable} ${vazirmatn.variable} font-light text-background dark:text-text font-geistMono dark:bg-background bg-primary px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}
+            >
+            <ThemeProviderWrap>
+                <Cursor/>
+                <NavbarMobile
+                    links={links}
+                    logo={logo}
+                />
+                <Navbar
+                    links={links}
+                    logo={logo}
+                    contact={contactBlock}
+                />
+                {children}
+                <Footer/>
+            </ThemeProviderWrap>
             </body>
         </CursorContextProvider>
         </html>

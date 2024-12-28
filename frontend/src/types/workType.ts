@@ -4,3 +4,5 @@ type WorkType = {
     secondaryThumbnail: string;
     description: string;
 }
+
+export default WorkType;

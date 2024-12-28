@@ -10,9 +10,9 @@ const useCursorHandlers = (options: CursorHandlersOptions = {}) => {
 
     const [, setCursor] = useContext(CursorContext);
 
-    const toggleCursor = () => {
-        setCursor(({ active }) => ({ active: !active }));
-    };
+    const toggleCursor = useCallback(() => {
+        setCursor(({active}) => ({active: !active}));
+    }, [setCursor]);
 
     const onMouseEnter: MouseEventHandler = useCallback(event => {
         if (options.onMouseEnter) {
@@ -28,7 +28,7 @@ const useCursorHandlers = (options: CursorHandlersOptions = {}) => {
         toggleCursor();
     }, [options, toggleCursor]);
 
-    return { onMouseEnter, onMouseLeave };
+    return {onMouseEnter, onMouseLeave};
 };
 
 export default useCursorHandlers;

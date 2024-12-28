@@ -1,3 +1,5 @@
+import AboutType from "@/types/aboutType";
+
 interface AboutProps {
     about: AboutType;
 }

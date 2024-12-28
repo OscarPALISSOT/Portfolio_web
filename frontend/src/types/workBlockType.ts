@@ -1,3 +1,5 @@
+import WorkType from "@/types/workType";
+
 type WorkBlockType = {
     link: string;
     title: string;
@@ -5,3 +7,5 @@ type WorkBlockType = {
     cv: string;
     works: WorkType[];
 }
+
+export default WorkBlockType;

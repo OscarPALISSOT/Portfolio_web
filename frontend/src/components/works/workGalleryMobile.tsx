@@ -1,8 +1,10 @@
 import Work from "@/components/works/work";
 import CvButton from "@/components/works/cvButton";
+import WorkType from "@/types/workType";
+import WorkBlockType from "@/types/workBlockType";
 
 interface WorkGalleryMobileProps {
-    workBlock: WorkBlockType
+    workBlock: WorkBlockType;
 }
 
 const WorkGalleryMobile = ({workBlock}:WorkGalleryMobileProps) => {

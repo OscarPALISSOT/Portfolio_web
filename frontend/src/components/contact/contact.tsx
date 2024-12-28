@@ -1,4 +1,5 @@
 import ContactLink from "@/components/contact/contactLink";
+import ContactType from "@/types/contactType";
 
 interface ContactProps {
     contact: ContactType;

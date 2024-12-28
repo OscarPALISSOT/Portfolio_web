@@ -4,3 +4,5 @@ type ContactType = {
     github: string;
     linkedin: string;
 }
+
+export default ContactType;

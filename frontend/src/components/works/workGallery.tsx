@@ -3,9 +3,11 @@
 import Work from "@/components/works/work";
 import {useEffect, useRef} from "react";
 import CvButton from "@/components/works/cvButton";
+import WorkBlockType from "@/types/workBlockType";
+import WorkType from "@/types/workType";
 
 interface WorkGalleryProps {
-    workBlock: WorkBlockType
+    workBlock: WorkBlockType;
 }
 
 const WorkGallery = ({workBlock}:WorkGalleryProps) => {

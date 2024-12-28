@@ -3,6 +3,7 @@
 import Image from "next/image";
 import {useEffect, useRef} from "react";
 import WorkTitle from "@/components/works/workTitle";
+import WorkType from "@/types/workType";
 
 interface WorkProps {
     work: WorkType;
@@ -25,7 +26,7 @@ const Work = ({work, isOdd = false, isFirst = false, isLast = false}: WorkProps)
             }
 
         }
-    }, []);
+    }, [isOdd, isFirst]);
 
     return (
         <div className={`mb-3 md:m-0 md:border md:border-text w-full overflow-hidden ${isOdd && !isLast && 'md:border-r-0'} ${isFirst ? 'md:border-t' : 'md:border-t-0'}`} ref={workWrapperRef}>

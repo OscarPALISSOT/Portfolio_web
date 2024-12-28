@@ -5,3 +5,5 @@ type AboutType = {
     description: string;
     logo: string;
 }
+
+export default AboutType;

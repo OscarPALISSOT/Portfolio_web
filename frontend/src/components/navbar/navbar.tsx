@@ -7,6 +7,7 @@ import useCurrentSection from "@/hooks/useCurrentSection";
 import useNavTo from "@/modules/navTo";
 import useCursorHandlers from "@/hooks/useCursorHandlers";
 import ContactLink from "@/components/contact/contactLink";
+import ContactType from "@/types/contactType";
 
 interface NavbarProps {
     links: string[];

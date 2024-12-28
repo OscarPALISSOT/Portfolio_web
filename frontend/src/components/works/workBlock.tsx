@@ -1,8 +1,9 @@
 import WorkGalleryMobile from "@/components/works/workGalleryMobile";
 import WorkGallery from "@/components/works/workGallery";
+import WorkBlockType from "@/types/workBlockType";
 
 interface WorkBlockProps {
-    workBlock: WorkBlockType
+    workBlock: WorkBlockType;
 }
 
 const WorkBlock = ({workBlock}: WorkBlockProps) => {

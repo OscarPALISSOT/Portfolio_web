@@ -19,7 +19,7 @@ export default function NotFound() {
                 rel={'noreferrer'}
                 {...cursorHandlers}
             >
-                Retour à l'accueil
+                Retour à l&apos;accueil
             </Link>
         </div>
     )

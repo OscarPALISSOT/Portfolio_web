@@ -10,6 +10,9 @@ import Navbar from "@/components/navbar/navbar";
 import Cursor from "@/components/cursor/cursor";
 import CursorContextProvider from "@/components/cursor/cursorContext";
 import Footer from "@/components/footer";
+import AboutType from "@/types/aboutType";
+import WorkBlockType from "@/types/workBlockType";
+import ContactType from "@/types/contactType";
 
 const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
 

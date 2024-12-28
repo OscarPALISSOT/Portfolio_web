@@ -4,6 +4,9 @@ import Section from "@/components/section";
 import WorkBlock from "@/components/works/workBlock";
 import About from "@/components/about";
 import Contact from "@/components/contact/contact";
+import WorkBlockType from "@/types/workBlockType";
+import ContactType from "@/types/contactType";
+import AboutType from "@/types/aboutType";
 
 const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
 

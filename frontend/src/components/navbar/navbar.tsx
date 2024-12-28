@@ -43,7 +43,7 @@ const Navbar = ({links, logo, contact}: NavbarProps) => {
                                 {links.map((link, index) => {
                                     return (
                                         <li key={index}
-                                            className={`mx-4 relative h-8 before:content-[""] before:absolute before:w-px before:bottom-0 before:bg-primary before:transition-transform before:h-full before:-right-1 before:ease-out before:duration-300 before:origin-bottom-right before:scale-y-0 hover:before:scale-y-100 hover:before:origin-top-right ${currentSection === link && 'before:scale-y-100 before:origin-top-right'}`}>
+                                            className={`mx-4 relative h-8 before:content-[""] before:absolute before:w-px before:bottom-0 before:bg-text before:transition-transform before:h-full before:-right-1 before:ease-out before:duration-300 before:origin-bottom-right before:scale-y-0 hover:before:scale-y-100 hover:before:origin-top-right ${currentSection === link && 'before:scale-y-100 before:origin-top-right'}`}>
                                             <div className={"overflow-hidden h-full"}>
                                                 <div
                                                     className={`h-full hover:-translate-y-full duration-500 text-2xl ${currentSection === link && '-translate-y-full'}`}

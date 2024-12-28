@@ -31,12 +31,16 @@ a{
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-::-webkit-scrollbar-thumb {
-  background: var(--text);
+
+@layer base {
+  ::-webkit-scrollbar-thumb {
+    @apply bg-background dark:bg-text
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-backgroundHover dark:bg-textHover
+  }
 }
-::-webkit-scrollbar-thumb:hover {
-  background: var(--textHover);
-}
+
 
 @media (min-width: 640px) {
 

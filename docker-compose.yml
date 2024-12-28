@@ -66,12 +66,12 @@ services:
       STORAGE_LOCAL_DRIVER: "local"
       STORAGE_LOCAL_ROOT: "./backend/uploads"
 
-#  frontend-portfolio_web:
-#    container_name: frontend-portfolio_web
-#    depends_on:
-#      - directus-portfolio_web
-#    build: frontend
-#    ports:
-#      - 3000:3000
-#    profiles:
-#      - frontend
+  frontend-portfolio_web:
+    container_name: frontend-portfolio_web
+    depends_on:
+      - directus-portfolio_web
+    build: frontend
+    ports:
+      - 3002:3000
+    profiles:
+      - frontend

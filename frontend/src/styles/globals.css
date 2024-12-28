@@ -16,11 +16,6 @@ html, body{
   scroll-behavior: smooth;
 }
 
-body{
-  background: var(--background);
-  color: var(--text);
-}
-
 li{
   list-style: none;
 }

@@ -59,7 +59,7 @@ export default async function RootLayout({children}: Readonly<{
         <html lang="en">
         <CursorContextProvider>
             <body
-                className={`${geistMono.variable} ${vazirmatn.variable} font-light font-geistMono bg-background px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}>
+                className={`${geistMono.variable} ${vazirmatn.variable} font-light text-text font-geistMono bg-background px-8 md:px-24 2xl:px-64 h-fit min-h-[100vh]`}>
             <Cursor/>
             <NavbarMobile
                 links={links}

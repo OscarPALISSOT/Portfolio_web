@@ -25,7 +25,7 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
         if (titleRef.current && descriptionRef.current && borderRef.current) {
             titleRef.current.style.height = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60) + 1 + 'px';
             descriptionRef.current.style.height = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60) +  'px';
-            borderRef.current.style.height = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60) +  'px';
+            borderRef.current.style.height = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60) + 1 + 'px';
         }
         if (leftWorksRef.current && workGalleryRef.current){
             workGalleryRef.current.style.height = leftWorksRef.current.clientHeight + 'px';
@@ -60,7 +60,7 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
                     <h1 className={"mb-4 text-2xl lg:text-3xl"}>{workBlock.title}</h1>
                 </div>
                 {oddWorks.map((work: WorkType, index) => (
-                    <Work key={index} work={work} isOdd={true} isFirst={index === 0} isLast={index === oddWorks.length}/>
+                    <Work key={index} work={work} isOdd={true} isFirst={index === 0}/>
                 ))}
             </div>
             <div className={"w-1/2"} ref={rightWorksRef}>

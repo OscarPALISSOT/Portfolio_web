@@ -23,7 +23,7 @@ const CharSpan = ({char, index, setEnteredIndex, enteredIndex}: CharSpanProps) =
     }, []);
 
     useEffect(() => {
-        if (clientX - (rect.left - rect.width / 2) > 0 && clientX - (rect.left + rect.width / 2) < 0 && clientY - (rect.top + (1.5 * rect.height)) < 0 && clientY - (rect.top - rect.height / 2) > 0) {
+        if (clientX - (rect.left - rect.width / 2) > 0 && clientX - (rect.left + rect.width / 2) < 0 && clientY - (rect.top + rect.height + 24) < 0 && clientY - (rect.top - 24) > 0) {
             setEnteredIndex(index);
         } else if (index === enteredIndex){
             setEnteredIndex(null);
@@ -32,7 +32,7 @@ const CharSpan = ({char, index, setEnteredIndex, enteredIndex}: CharSpanProps) =
 
     useEffect(() => {
         const indexRatio = rect.left + ((enteredIndex! - index) * rect.width);
-        const yRatio = 1 - Math.min(1, Math.max(0,Math.abs(clientY - rect.top - rect.height / 2) / rect.height / 2));
+        const yRatio = 1 - Math.min(1, Math.max(0,Math.abs(clientY - rect.top - rect.height / 2) / rect.height));
         if (enteredIndex !== null && index + 1 > enteredIndex && char !== ' ') {
             setPosition({x:(clientX - indexRatio + 24) * yRatio, y: 0});
         } else if (enteredIndex !== null && index < enteredIndex && clientX - rect.left && char !== ' ') {
@@ -47,7 +47,7 @@ const CharSpan = ({char, index, setEnteredIndex, enteredIndex}: CharSpanProps) =
         <motion.span
             ref={spanRef}
             animate={{x, y}}
-            transition={{duration: 0.15, type: 'spring', bounce:0.8, mass: 0.2, damping: 3, stiffness: 150}}
+            transition={{type: 'spring', bounce:0.8, mass: 0.2, damping: 3, stiffness: 150}}
             className={'inline-block'}
             style={{whiteSpace: char === ' ' ? 'pre' : undefined}}
         >

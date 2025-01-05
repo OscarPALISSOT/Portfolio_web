@@ -15,8 +15,6 @@ export default function NotFound() {
             <Link
                 className={'w-fit text-base md:text-sm lg:text-lg font-extralight border border-background dark:border-text p-2 lg:p-3 duration-500 ease-in-out bg-gradient-to-r from-background dark:from-primary from-50% to-primary dark:to-background to-50% bg-[length:200%_100%] bg-right hover:bg-left hover:text-background overflow-hidden'}
                 href={'/'}
-                target={'_blank'}
-                rel={'noreferrer'}
                 {...cursorHandlers}
             >
                 Retour à l&apos;accueil

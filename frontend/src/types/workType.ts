@@ -1,7 +1,9 @@
 type WorkType = {
+    id: number;
     title: string;
+    link: string;
     thumbnail: string;
-    secondaryThumbnail: string;
+    secondary_thumbnail: string;
     description: string;
 }
 

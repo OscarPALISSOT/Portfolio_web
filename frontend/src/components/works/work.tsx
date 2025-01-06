@@ -4,6 +4,7 @@ import Image from "next/image";
 import {useEffect, useRef} from "react";
 import WorkTitle from "@/components/works/workTitle";
 import WorkType from "@/types/workType";
+import Link from "next/link";
 
 interface WorkProps {
     work: WorkType;
@@ -28,18 +29,22 @@ const Work = ({work, isOdd = false, isFirst = false}: WorkProps) => {
     }, [isOdd, isFirst]);
 
     return (
-        <div className={`mb-3 md:m-0 border border-background dark:border-text w-full overflow-hidden ${isOdd && 'md:border-r-0'} ${isFirst ? 'md:border-t' : 'md:border-t-0'}`} ref={workWrapperRef}>
-            <div ref={workRef}>
-                <Image
-                    className={'h-full w-full object-cover'}
-                    src={process.env.NEXT_PUBLIC_ASSETS_URL + work.thumbnail}
-                    width={1920}
-                    height={1080}
-                    alt={work.title}
-                />
+        <Link href={"/work/" + work.id}>
+            <div
+                className={`mb-3 md:m-0 border border-background dark:border-text w-full overflow-hidden ${isOdd && 'md:border-r-0'} ${isFirst ? 'md:border-t' : 'md:border-t-0'}`}
+                ref={workWrapperRef}>
+                <div ref={workRef}>
+                    <Image
+                        className={'h-full w-full object-cover'}
+                        src={process.env.NEXT_PUBLIC_ASSETS_URL + work.thumbnail}
+                        width={1920}
+                        height={1080}
+                        alt={work.title}
+                    />
+                </div>
+                <WorkTitle title={work.title}/>
             </div>
-            <WorkTitle title={work.title} />
-        </div>
+        </Link>
     )
 }
 

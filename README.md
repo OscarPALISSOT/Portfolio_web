@@ -16,4 +16,4 @@ J'ai réalisé ce projet en utilisant les technologies suivantes :
 - **React** : pour l'infrastructure frontend.
 - **NextJS** : pour le rendu côté serveur.
 - **Tailwind** : pour le style du site web.
-- **Framer** : pour les animations.
+- **Motion** : pour les animations.

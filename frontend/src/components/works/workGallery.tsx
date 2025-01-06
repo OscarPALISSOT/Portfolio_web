@@ -1,10 +1,11 @@
 'use client';
 
 import Work from "@/components/works/work";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import CvButton from "@/components/works/cvButton";
 import WorkBlockType from "@/types/workBlockType";
 import WorkType from "@/types/workType";
+import {motion, useScroll, useTransform} from "motion/react";
 
 interface WorkGalleryProps {
     workBlock: WorkBlockType;
@@ -20,6 +21,8 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
     const borderRef = useRef<HTMLDivElement>(null);
     const evenWorks = workBlock.works.filter((_, index) => index % 2 === 0);
     const oddWorks = workBlock.works.filter((_, index) => index % 2 !== 0);
+    const [workHeight, setWorkHeight] = useState(0);
+    const [leftWorksHeight, setLeftWorksHeight] = useState(0);
 
     useEffect(() => {
         if (titleRef.current && descriptionRef.current && borderRef.current) {
@@ -27,34 +30,28 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
             descriptionRef.current.style.height = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60) +  'px';
             borderRef.current.style.height = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60) + 1 + 'px';
         }
-        if (leftWorksRef.current && workGalleryRef.current){
-            workGalleryRef.current.style.height = leftWorksRef.current.clientHeight + 'px';
-        }
     }, []);
+
+    const { scrollYProgress } = useScroll({
+        target: workGalleryRef,
+        offset: ['start 0.33', 'end 0.66'],
+    })
 
     useEffect(() => {
-        const handleScrolling = () => {
-            if (workGalleryRef.current && titleRef.current && leftWorksRef.current) {
-                const rect = workGalleryRef.current.getBoundingClientRect();
-                const workHeight = (Math.round(titleRef.current.clientWidth * 9 / 16) + 60);
-                const scrollProgress = Math.min(1, Math.max(0, (workGalleryRef.current.clientHeight - (rect.bottom - (window.innerHeight / 3))) / workGalleryRef.current.clientHeight));
-                if (rightWorksRef.current) {
-                    rightWorksRef.current.style.transform = `translate3d(0, ${-workHeight * scrollProgress +  'px'}, 0)`;
-                }
-                workGalleryRef.current.style.paddingTop = `${workHeight * scrollProgress +  'px'}`;
-                workGalleryRef.current.style.height = leftWorksRef.current.clientHeight + (workHeight * scrollProgress) + 'px';
-            }
+        if (titleRef.current){
+            setWorkHeight(Math.round(titleRef.current.clientWidth * 9 / 16) + 60)
         }
-        window.addEventListener("scroll", handleScrolling);
-        handleScrolling();
-
-        return () => {
-            window.removeEventListener("scroll", handleScrolling);
-        };
+        if (leftWorksRef.current){
+            setLeftWorksHeight(leftWorksRef.current.clientHeight)
+        }
     }, []);
 
+    const y = useTransform(scrollYProgress, [0,1], [0, -workHeight])
+    const paddingTop = useTransform(scrollYProgress, [0,1], [0, workHeight])
+    const height = useTransform(scrollYProgress, [0, 1], [leftWorksHeight, leftWorksHeight + workHeight]);
+
     return (
-        <div className={"hidden md:flex flex-row overflow-hidden"} ref={workGalleryRef}>
+        <motion.div className={"hidden md:flex flex-row overflow-hidden"} ref={workGalleryRef} style={{paddingTop, height}}>
             <div className={"w-1/2 h-fit"} ref={leftWorksRef}>
                 <div className={"m-0 w-full overflow-hidden border-b border-transparent flex items-center justify-center"} ref={titleRef}>
                     <h1 className={"mb-4 text-2xl lg:text-3xl"}>{workBlock.title}</h1>
@@ -63,7 +60,7 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
                     <Work key={index} work={work} isOdd={true} isFirst={index === 0}/>
                 ))}
             </div>
-            <div className={"w-1/2"} ref={rightWorksRef}>
+            <motion.div className={"w-1/2"} ref={rightWorksRef} style={{y}}>
                 {evenWorks.map((work: WorkType, index) => (
                     <Work key={index} work={work} isFirst={index === 0}/>
                 ))}
@@ -72,8 +69,8 @@ const WorkGallery = ({workBlock}:WorkGalleryProps) => {
                     <CvButton cvLink={workBlock.cv}/>
                 </div>
                 <div className={'border-l border-background dark:border-text'} ref={borderRef}/>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     )
 }
 

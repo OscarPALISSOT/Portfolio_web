@@ -5,6 +5,7 @@ import AntiMagnetEffectText from "@/components/antiMagnetEffectText/antiMagnetEf
 import WorkLink from "@/app/work/[id]/workLink";
 import ThumbnailWork from "@/app/work/[id]/thumbnailWork";
 import Carrousel from "@/app/work/[id]/carrousel";
+import Technos from "@/app/work/[id]/technos";
 
 const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
 
@@ -17,7 +18,13 @@ async function Work({params}: WorkProps) {
     const id = (await params).id
 
     const work = await client.request(
-        readItem('work', id)
+        readItem('work', id,{
+            fields: ['*', {
+                technos: ['*', {
+                    techno_id: ['*',{}]
+                }]
+            }],
+        })
     ) as WorkType;
 
     return (
@@ -41,11 +48,11 @@ async function Work({params}: WorkProps) {
             <ThumbnailWork work={work}/>
             <div className={"md:mx-8 lg:mx-36"}>
                 <div className={'mb-8 md:m-0 md:h-[40vh] lg:h-[50vh] flex flex-col md:flex-row md:items-center gap-6'}>
-                    <div className={'md:w-1/2 h-full flex items-center'}>
+                    <div className={'md:w-1/2 h-full flex items-center justify-center'}>
                         <Carrousel work={work}/>
                     </div>
-                    <div className={'md:w-1/2'}>
-
+                    <div className={'md:w-1/2 flex items-center justify-center'}>
+                        <Technos technos={work.technos}/>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'backend.oscarpalissot.fr',
             }
-        ]
+        ],
+        dangerouslyAllowSVG: true,
     },
 };
 

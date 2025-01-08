@@ -6,6 +6,7 @@ import WorkLink from "@/app/work/[id]/workLink";
 import ThumbnailWork from "@/app/work/[id]/thumbnailWork";
 import Carrousel from "@/app/work/[id]/carrousel";
 import Technos from "@/app/work/[id]/technos";
+import BackBtn from "@/app/work/[id]/backBtn";
 
 const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
 
@@ -29,6 +30,9 @@ async function Work({params}: WorkProps) {
 
     return (
         <div className={'min-h-[calc(100vh_-_192px_-_56px_-_32px)] mb-14'}>
+            <div className={'mt-6 md:mt-8 md:ms-6 md:absolute'}>
+                <BackBtn/>
+            </div>
             <div className={"md:mx-8 lg:mx-36"}>
                 <div className={'mb-8 md:m-0 md:h-[40vh] lg:h-[60vh] flex flex-col md:flex-row md:items-center gap-6'}>
                     <div className={'md:w-1/2 h-full flex flex-col'}>

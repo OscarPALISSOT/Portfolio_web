@@ -35,11 +35,11 @@ const NavbarMobile = ({links}: NavbarProps) => {
                         </Link>
                     </div>
                     <div
-                        className={'cursor-pointer py-2 overflow-hidden'}
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                        <div
-                            className={`h-0.5 w-8 bg-background dark:bg-text duration-300 ease-out transition-all before:content-[""] before:h-0.5 before:w-8 before:absolute before:bg-background dark:before:bg-text after:content-[""] after:h-0.5 after:w-8 after:absolute after:bg-background dark:after:bg-text before:-translate-y-2 after:translate-y-2 before:duration-300 before:transition-all before:ease-out after:duration-300 after:transition-all after:ease-out ${isMenuOpen && '-translate-x-8 bg-transparent before:translate-x-8 after:translate-x-8 before:rotate-45 before:translate-y-0 after:translate-y-[0] after:-rotate-45'}`}
-                        />
+                        className={'cursor-pointer flex flex-col justify-center items-end gap-2'}
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                        <div className={`h-0.5 w-8 bg-background dark:bg-text duration-300 ease-out transition-all origin-center ${isMenuOpen && 'rotate-45  translate-y-[5px]'}`}/>
+                        <div className={`h-0.5 bg-background dark:bg-text duration-300 ease-out transition-all ${isMenuOpen ? 'w-8 -rotate-45 -translate-y-[5px]' : 'w-5'}`}/>
                     </div>
                 </div>
             </div>

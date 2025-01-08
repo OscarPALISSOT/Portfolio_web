@@ -33,6 +33,7 @@ const vazirmatn = Vazirmatn({
 
 export const metadata: Metadata = {
     title: 'Oscar PALISSOT | Développeur web et logiciel',
+    description: 'Portfolio d’Oscar PALISSOT, développeur web et logiciel basé à Grenoble. Découvrez mes projets ainsi que mes expériences en création. Contactez-moi pour collaborer sur vos projets !'
 };
 
 export default async function RootLayout({children}: Readonly<{

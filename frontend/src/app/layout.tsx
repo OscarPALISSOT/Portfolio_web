@@ -57,7 +57,6 @@ export default async function RootLayout({children}: Readonly<{
     ) as unknown as ContactType;
 
     const links = [workBlock.link, about.link, contactBlock.link];
-    const logo = about.logo
 
     return (
         <html lang="en" suppressHydrationWarning={true}>
@@ -69,11 +68,9 @@ export default async function RootLayout({children}: Readonly<{
                 <Cursor/>
                 <NavbarMobile
                     links={links}
-                    logo={logo}
                 />
                 <Navbar
                     links={links}
-                    logo={logo}
                     contact={contactBlock}
                 />
                 {children}

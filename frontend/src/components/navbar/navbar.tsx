@@ -2,21 +2,20 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import useCurrentSection from "@/hooks/useCurrentSection";
 import useNavTo from "@/modules/navTo";
 import useCursorHandlers from "@/hooks/useCursorHandlers";
 import ContactLink from "@/components/contact/contactLink";
 import ContactType from "@/types/contactType";
 import ThemeSwitch from "@/components/navbar/themeSwitch";
+import Logo from "@/components/navbar/logo";
 
 interface NavbarProps {
     links: string[];
-    logo: string;
     contact: ContactType;
 }
 
-const Navbar = ({links, logo, contact}: NavbarProps) => {
+const Navbar = ({links, contact}: NavbarProps) => {
 
     const currentSection = useCurrentSection(links);
     const navTo = useNavTo();
@@ -27,16 +26,13 @@ const Navbar = ({links, logo, contact}: NavbarProps) => {
             <div
                 className={'hidden lg:flex transition duration-300 border-b border-background dark:border-text font-extralight bg-primary dark:bg-background font-geistMono sticky top-0 2xl:px-64 2xl:-mx-64 -mx-24 px-24 flex-col justify-between z-50 overflow-hidden'}>
                 <div className={'flex flex-row justify-between items-center h-24'}>
-                    <div className={'h-full border-x border-x-background dark:border-x-text'}>
+                    <div className={'group fill-background dark:fill-text h-full border-x border-x-background dark:border-x-text duration-500 ease-in-out bg-gradient-to-r from-background dark:from-primary from-50% to-primary dark:to-background to-50% bg-[length:200%_100%] bg-right hover:bg-left'}>
                         <Link
                             href="/"
                             className={'px-4 w-full h-full flex items-center justify-center'}
                             {...cursorHandlers}
                         >
-                            <Image
-                                className={'h-12 w-auto hover:scale-105 duration-300 ease-out transition-all'}
-                                src={process.env.NEXT_PUBLIC_ASSETS_URL + logo + '?key=logo'} alt="logo" width={128}
-                                height={128}/>
+                            <Logo/>
                         </Link>
                     </div>
                     <div className={'h-full flex'}>

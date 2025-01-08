@@ -2,16 +2,15 @@
 
 import React, {useEffect, useState} from "react";
 import Link from "next/link";
-import Image from "next/image";
 import useNavTo from "@/modules/navTo";
 import ThemeSwitch from "@/components/navbar/themeSwitch";
+import Logo from "@/components/navbar/logo";
 
 interface NavbarProps {
     links: string[];
-    logo: string;
 }
 
-const NavbarMobile = ({links, logo}: NavbarProps) => {
+const NavbarMobile = ({links}: NavbarProps) => {
 
     const navTo = useNavTo();
 
@@ -30,12 +29,11 @@ const NavbarMobile = ({links, logo}: NavbarProps) => {
             <div
                 className={'lg:hidden border-b border-background dark:border-text text-2xl transition duration-300 font-bold bg-primary dark:bg-background font-geistMono sticky top-0 -mx-8 md:-mx-24 px-8 -left-8 flex flex-col justify-between w-screen z-40'}>
                 <div className={'flex flex-row justify-between items-center h-20 w-full'}>
-                    <Link href="/">
-                        <Image
-                            className={'h-12 w-auto cursor-pointer hover:scale-105 duration-300 ease-out transition-all'}
-                            src={process.env.NEXT_PUBLIC_ASSETS_URL + logo + '?key=logo'} alt="logo" width={128}
-                            height={128}/>
-                    </Link>
+                    <div className={`flex justify-center items-center px-2 h-full border-x border-background dark:border-text duration-300 ${isMenuOpen && 'border-x-0'}`}>
+                        <Link href="/">
+                            <Logo/>
+                        </Link>
+                    </div>
                     <div
                         className={'cursor-pointer py-2 overflow-hidden'}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}>

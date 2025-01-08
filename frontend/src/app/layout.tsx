@@ -40,7 +40,7 @@ export default async function RootLayout({children}: Readonly<{
 
     const about = await client.request(
         readItems('about', {
-            fields: ['link, logo', {}],
+            fields: ['link', {}],
         })
     ) as unknown as AboutType;
 

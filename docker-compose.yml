@@ -20,6 +20,20 @@ services:
     networks:
       - shared-network
 
+  reverse-proxy-portfolio-web:
+    image: caddy:latest
+    container_name: reverse-proxy-portfolio-web
+    restart: unless-stopped
+    expose:
+      - "80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - shared-network
+      - edge-network
+      
   directus-portfolio-web:
     container_name: directus-portfolio-web
     image: directus/directus:latest

@@ -1,0 +1,7 @@
+http://backend.oscarpalissot.fr, http://www.backend.oscarpalissot.fr {
+  reverse_proxy directus-portfolio-web:8057
+}
+
+http://oscarpalissot.fr, http://www.oscarpalissot.fr {
+  reverse_proxy nextjs-front-portfolio-web:3000
+}

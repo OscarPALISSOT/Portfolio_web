@@ -1,0 +1,14 @@
+services: 
+  directus-portfolio-web:
+    ports:
+      - 8057:8055
+
+  frontend-portfolio-web:
+    ports:
+      - 3002:3000
+    profiles:
+      - prod  # désactive le frontend en dev
+
+  reverse-proxy-portfolio-web:
+    profiles:
+      - prod  # désactive Caddy en dev 

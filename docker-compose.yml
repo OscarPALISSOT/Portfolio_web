@@ -1,33 +1,35 @@
 services:
-  database-portfolio_web:
-    container_name: database-portfolio_web
+  database-portfolio-web:
+    container_name: database-portfolio-web
     image: mariadb:latest
     ports:
       - 65052:3306
     volumes:
-      - ./backend/database:/var/lib/mysql
+      - mariadb_data:/var/lib/mysql
     environment:
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        MYSQL_DATABASE: ${MYSQL_DATABASE}
-        MYSQL_USER: ${MYSQL_USER}
-        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - shared-network
 
-  cache-portfolio_web:
-    container_name: cache-portfolio_web
+  cache-portfolio-web:
+    container_name: cache-portfolio-web
     image: redis:latest
+    networks:
+      - shared-network
 
-  directus-portfolio_web:
-    container_name: directus-portfolio_web
+  directus-portfolio-web:
+    container_name: directus-portfolio-web
     image: directus/directus:latest
-    ports:
-      - 8057:8055
     volumes:
       - ./backend/directus/uploads:/directus/backend/uploads
       - ./backend/directus/database:/directus/database
       - ./backend/directus/extensions:/directus/extensions
     depends_on:
-      - cache-portfolio_web
-      - database-portfolio_web
+      - cache-portfolio-web
+      - database-portfolio-web
     environment:
       KEY: ${KEY}
       SECRET: ${SECRET}
@@ -37,13 +39,13 @@ services:
 
       # DB CONFIGURATION
       DB_CLIENT: ${DB_CLIENT}
-      DB_HOST: database-portfolio_web
+      DB_HOST: database-portfolio-web
       DB_PORT: ${DB_PORT}
       DB_DATABASE: ${MYSQL_DATABASE}
       DB_USER: ${MYSQL_USER}
       DB_PASSWORD: ${MYSQL_PASSWORD}
 
-      REDIS_HOST: cache-portfolio_web
+      REDIS_HOST: cache-portfolio-web
       REDIS_PORT: 6379
 
       CACHE_STORE: "redis"
@@ -65,15 +67,33 @@ services:
       STORAGE_LOCATIONS: "local"
       STORAGE_LOCAL_DRIVER: "local"
       STORAGE_LOCAL_ROOT: "./backend/uploads"
+    networks:
+      - shared-network
+      - outbound-network
 
-  frontend-portfolio_web:
-    container_name: frontend-portfolio_web
+  frontend-portfolio-web:
+    container_name: frontend-portfolio-web
     depends_on:
-      - directus-portfolio_web
-    build: frontend
-    ports:
-      - 3002:3000
-    profiles:
-      - frontend
+      - directus-portfolio-web
+      - reverse-proxy-portfolio-web
+    build:
+      context: frontend
+      args:
+        - NEXT_PUBLIC_ASSETS_URL=${NEXT_PUBLIC_ASSETS_URL}
     env_file:
       - .env
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    internal: true
+  edge-network:
+    external: true
+  outbound-network:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+  caddy_data:
+  caddy_config:

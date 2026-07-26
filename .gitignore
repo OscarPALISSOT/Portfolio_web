@@ -1,6 +1,10 @@
 #ide
 .idea
 .vscode
+.DS_Store
 
 #conf
 .env
+
+#directus backend
+backend/*

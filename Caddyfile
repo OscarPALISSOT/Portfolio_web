@@ -1,5 +1,5 @@
 http://backend.oscarpalissot.fr, http://www.backend.oscarpalissot.fr {
-  reverse_proxy directus-portfolio-web:8057
+  reverse_proxy directus-portfolio-web:8055
 }
 
 http://oscarpalissot.fr, http://www.oscarpalissot.fr {

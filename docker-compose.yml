@@ -111,5 +111,6 @@ networks:
 volumes:
   mariadb_data:
     external: true
+    name: portfolio_web_mariadb_data
   caddy_data:
   caddy_config:

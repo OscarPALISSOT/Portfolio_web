@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import {createDirectus, readItems, rest} from "@directus/sdk";
 import WorkBlockType from "@/types/workBlockType";
 
-const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
+const client = createDirectus(process.env.NEXT_DIRECTUS_INTERNAL_URL!).with(rest());
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 

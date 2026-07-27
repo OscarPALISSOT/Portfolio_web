@@ -16,7 +16,7 @@ import ContactType from "@/types/contactType";
 import ThemeProviderWrap from "@/components/themeProvider";
 import SmoothScroll from "@/components/smoothScroll";
 
-const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
+const client = createDirectus(process.env.NEXT_DIRECTUS_INTERNAL_URL!).with(rest());
 
 const geistMono = Geist_Mono({
     weight: ['100', '300', '400', '500', '700', '900'],

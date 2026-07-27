@@ -20,6 +20,7 @@ const Technos = ({technos}: TechnosProps) => {
                             width={40}
                             height={40}
                             className={'h-full w-auto object-cover dark:invert'}
+                            unoptimized
                         />
                     </div>
                     {techno.techno_id.name}

@@ -8,7 +8,7 @@ import WorkBlockType from "@/types/workBlockType";
 import ContactType from "@/types/contactType";
 import AboutType from "@/types/aboutType";
 
-const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
+const client = createDirectus(process.env.NEXT_DIRECTUS_INTERNAL_URL!).with(rest());
 
 export default async function Home() {
 

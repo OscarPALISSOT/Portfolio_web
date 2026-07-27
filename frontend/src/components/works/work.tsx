@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 import WorkTitle from "@/components/works/workTitle";
 import WorkType from "@/types/workType";
 import Link from "next/link";
@@ -12,7 +12,7 @@ interface WorkProps {
     isFirst?: boolean;
 }
 
-const Work = ({work, isOdd = false, isFirst = false}: WorkProps) => {
+const Work = ({ work, isOdd = false, isFirst = false }: WorkProps) => {
 
     const workWrapperRef = useRef<HTMLDivElement>(null);
     const workRef = useRef<HTMLDivElement>(null);
@@ -40,9 +40,10 @@ const Work = ({work, isOdd = false, isFirst = false}: WorkProps) => {
                         width={1920}
                         height={1080}
                         alt={work.title}
+                        unoptimized
                     />
                 </div>
-                <WorkTitle title={work.title}/>
+                <WorkTitle title={work.title} />
             </div>
         </Link>
     )

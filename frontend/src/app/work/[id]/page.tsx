@@ -8,7 +8,7 @@ import Carrousel from "@/app/work/[id]/carrousel";
 import Technos from "@/app/work/[id]/technos";
 import BackBtn from "@/app/work/[id]/backBtn";
 
-const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
+const client = createDirectus(process.env.NEXT_DIRECTUS_INTERNAL_URL!).with(rest());
 
 interface WorkProps {
     params: Promise<{ id: string }>

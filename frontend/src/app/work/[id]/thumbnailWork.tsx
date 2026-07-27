@@ -47,6 +47,7 @@ const ThumbnailWork = ({work}: ThumbnailWorkProps) => {
                     width={1920}
                     height={1080}
                     alt={work.title}
+                    unoptimized
                 />
             </motion.div>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import {createDirectus, readItems, rest} from "@directus/sdk";
 import Mentions from "@/types/mentions";
 
-const client = createDirectus(process.env.NEXT_PUBLIC_DIRECTUS_URL!).with(rest());
+const client = createDirectus(process.env.NEXT_DIRECTUS_INTERNAL_URL!).with(rest());
 
 async function MentionsLegales() {
 

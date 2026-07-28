@@ -21,8 +21,8 @@ jobs:
           passphrase: ${{ secrets.SERVER_PASSPHRASE }}
           script: |
             cd /home/containers/Portfolio_web
-            git checkout main
-            git pull
+            git fetch origin main
+            git reset --hard origin/main
 
       - name: Refresh docker containers
         uses: appleboy/ssh-action@master
@@ -34,5 +34,7 @@ jobs:
           command_timeout: 20m
           script: |
             cd /home/containers/Portfolio_web
-            docker compose down --rmi all
-            docker compose -f docker-compose.yml up -d
+            docker compose pull
+            docker compose build --no-cache frontend-portfolio-web
+            docker compose up -d --remove-orphans
+            docker image prune -f

@@ -8,4 +8,12 @@ type WorkBlockType = {
     works: WorkType[];
 }
 
+export const defaultWorkBlock = {
+    link: '',
+    title: '',
+    description: '',
+    cv: '',
+    works: [],
+} satisfies WorkBlockType;
+
 export default WorkBlockType;

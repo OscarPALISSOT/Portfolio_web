@@ -5,4 +5,11 @@ type ContactType = {
     linkedin: string;
 }
 
+export const defaultContact = {
+    link: '',
+    title: '',
+    github: '',
+    linkedin: '',
+} satisfies ContactType;
+
 export default ContactType;

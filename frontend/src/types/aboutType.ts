@@ -5,4 +5,11 @@ type AboutType = {
     description: string;
 }
 
+export const defaultAbout = {
+    link: '',
+    title: '',
+    subtitle: '',
+    description: '',
+} satisfies AboutType;
+
 export default AboutType;

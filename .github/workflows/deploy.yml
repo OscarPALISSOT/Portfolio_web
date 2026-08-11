@@ -34,8 +34,5 @@ jobs:
           command_timeout: 20m
           script: |
             cd /home/containers/Portfolio_web
-            docker compose pull
-            DOCKER_BUILDKIT=0 docker compose build --no-cache frontend-portfolio-web
-            docker compose up -d --remove-orphans
-            docker compose up -d --force-recreate --no-deps frontend-portfolio-web
-            docker image prune -f
+            docker compose down --rmi all
+            docker compose -f docker-compose.yml up -d

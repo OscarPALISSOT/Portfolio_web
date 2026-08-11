@@ -35,7 +35,7 @@ jobs:
           script: |
             cd /home/containers/Portfolio_web
             docker compose pull
-            docker compose build --no-cache frontend-portfolio-web
+            DOCKER_BUILDKIT=0 docker compose build --no-cache frontend-portfolio-web
             docker compose up -d --remove-orphans
             docker compose up -d --force-recreate --no-deps frontend-portfolio-web
             docker image prune -f

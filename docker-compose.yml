@@ -92,7 +92,6 @@ services:
       - reverse-proxy-portfolio-web
     build:
       context: frontend
-      network: shared-network
       args:
         - NEXT_DIRECTUS_INTERNAL_URL=${NEXT_DIRECTUS_INTERNAL_URL}
         - NEXT_PUBLIC_ASSETS_URL=${NEXT_PUBLIC_ASSETS_URL}
